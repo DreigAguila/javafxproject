@@ -16,7 +16,9 @@ public class Main extends Application {
         primaryStage.setTitle("Log in");
 
         //window size
-        primaryStage.setScene(new Scene(root, 750, 500));
+        primaryStage.setScene(new Scene(root, 800, 500));
+
+        primaryStage.setResizable(false);
 
         //display 
         primaryStage.show();

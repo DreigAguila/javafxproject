@@ -93,13 +93,14 @@ public class DatabaseHandler {
         return false;
     }
 
-    public static boolean updateUser(User user) {
+    public static boolean updateUser(User user, String oldUsername) {
 
         try {
-            pstatement = getDBConnection().prepareStatement("UPDATE `users` SET Username = ?, Password = ? WHERE Username = ?");
+            String updateStatement ="UPDATE `users` SET Username = ?, Password = ? WHERE Username = ?";
+            pstatement = getDBConnection().prepareStatement(updateStatement);
             pstatement.setString(1, user.getUsername());
             pstatement.setString(2, user.getPassword());
-            pstatement.setString(3, user.getUsername());
+            pstatement.setString(3, oldUsername);
 
             int res = pstatement.executeUpdate();
             
@@ -154,5 +155,6 @@ public class DatabaseHandler {
         }
         return false;
     }
+    
     
 }

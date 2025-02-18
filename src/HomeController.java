@@ -14,7 +14,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-
+import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.DialogPane;
@@ -62,7 +62,7 @@ public class HomeController implements Initializable{
 
     public void displayName(String username)
     {
-        usernamedisplay.setText("User");
+        usernamedisplay.setText("Admin");
     }
 
     @Override
@@ -116,6 +116,7 @@ public class HomeController implements Initializable{
             Alert alert = new Alert(AlertType.ERROR);
             alert.setContentText("no username provided");
             alert.showAndWait();
+            return;
     
           
         }
@@ -124,6 +125,7 @@ public class HomeController implements Initializable{
             Alert alert = new Alert(AlertType.ERROR);
             alert.setContentText("no password provided");
             alert.showAndWait();
+            return;
            
       
         }
@@ -162,6 +164,7 @@ public class HomeController implements Initializable{
             Alert alert = new Alert(AlertType.ERROR);
             alert.setContentText("Cannot Delete User");
             alert.showAndWait();
+            return;
 
         }
         displayUsers();
@@ -169,33 +172,36 @@ public class HomeController implements Initializable{
 
     @FXML
     private void updateUser(ActionEvent event){
+        
+        String newUsername = usernametextfield.getText();
+        String newPassword = passwordtextfield.getText();
+        String oldUsername = usernametextfield.getPromptText();
 
-        String createUsername = usernametextfield.getText();
-        String createPassword = passwordtextfield.getText();
+        newUsername = newUsername.trim();
+        newPassword = newPassword.trim();
 
-        createUsername = createUsername.trim();
-        createPassword = createPassword.trim();
-
-        if (createUsername.length() == 0){
+        if (newUsername.length() == 0){
             Alert alert = new Alert(AlertType.ERROR);
             alert.setContentText("no username provided");
             alert.showAndWait();
+            return;
     
           
         }
 
-        if (createPassword.length() == 0){
+        if (newPassword.length() == 0){
             Alert alert = new Alert(AlertType.ERROR);
             alert.setContentText("no password provided");
             alert.showAndWait();
+            return;
            
       
         }
 
-        User user = new User("", createUsername, createPassword, "");
-        if (DatabaseHandler.updateUser(user)){
+        User user = new User("", newUsername, newPassword, "");
+        if (DatabaseHandler.updateUser(user, oldUsername)){
             Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setContentText("User Created");
+            alert.setContentText("User updated");
             alert.showAndWait();
             displayUsers();
           
@@ -205,8 +211,31 @@ public class HomeController implements Initializable{
             alert.showAndWait();
         }
     }
-        
+
+    @FXML
+    private void handleUserSelection(MouseEvent event) {
+        User selectedUser = userstable.getSelectionModel().getSelectedItem();
+        if (selectedUser != null) {
+            loadUserDetails(selectedUser);
+        }
+    }
+    private void loadUserDetails(User currentUser) {
+        usernametextfield.setText(currentUser.getUsername()); // Pre-fill username
+        usernametextfield.setPromptText(currentUser.getUsername()); // Store old username
+        passwordtextfield.setText(currentUser.getPassword()); // Pre-fill password
+    }
+
+    @FXML
+    private void handleFocusGained(MouseEvent event) {
+        TextField source = (TextField) event.getSource();
+        if (source.getText().equals(source.getPromptText())) {
+            source.clear(); // Clear prompt text when user focuses on the field
+        }
+    }
+
 }
+
+
     
 
     

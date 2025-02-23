@@ -61,6 +61,9 @@ public class HomeController implements Initializable{
     private Button customertablebutton;
 
     @FXML
+    private Button ridertablebutton;
+
+    @FXML
     private Label nameLabel;
 
     @FXML
@@ -240,7 +243,7 @@ public class HomeController implements Initializable{
             e.printStackTrace();
         }
     }
-    }
+}
 
     @FXML
     private void customertableHandler(ActionEvent event) {
@@ -248,6 +251,28 @@ public class HomeController implements Initializable{
         try {
             // Load FXML file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("customertablepage.fxml"));
+            Parent root = loader.load();
+
+            // Load stage and scene
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+            stage.centerOnScreen();
+
+        } catch (Exception e) {
+            System.out.println("Error loading customertablepage.fxml: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+    }
+
+    @FXML
+    private void ridertableHandler(ActionEvent event) {
+
+        try {
+            // Load FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ridertablepage.fxml"));
             Parent root = loader.load();
 
             // Load stage and scene

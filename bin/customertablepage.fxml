@@ -159,12 +159,12 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="admintablebutton" layoutX="257.0" layoutY="655.0" mnemonicParsing="false" onAction="#admintableHandler" prefHeight="30.0" prefWidth="154.0" style="-fx-background-color: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #000000;" text="Admin Table">
+            <Button fx:id="admintablebutton" layoutX="422.0" layoutY="655.0" mnemonicParsing="false" onAction="#admintableHandler" prefHeight="30.0" prefWidth="154.0" style="-fx-background-color: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #000000;" text="Admin Table">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="ridertablebutton" layoutX="422.0" layoutY="655.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="154.0" style="-fx-background-color: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #000000;" text="Rider Table">
+            <Button fx:id="ridertablebutton" layoutX="257.0" layoutY="655.0" mnemonicParsing="false" onAction="#ridertableHandler" prefHeight="30.0" prefWidth="154.0" style="-fx-background-color: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #000000;" text="Rider Table">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

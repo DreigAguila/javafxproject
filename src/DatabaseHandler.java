@@ -93,7 +93,7 @@ public class DatabaseHandler {
         return false;
     }
 
-    public static boolean updateUser(User user, String oldUsername) {
+    public static boolean updateUser(String oldUsername, User user) {
 
         try {
             String updateStatement ="UPDATE `users` SET Username = ?, Password = ? WHERE Username = ?";

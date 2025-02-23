@@ -1,24 +1,28 @@
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.DialogPane;
-
 import javax.imageio.IIOException;
 
 
@@ -49,6 +53,12 @@ public class HomeController implements Initializable{
 
     @FXML
     private Button deleteButton;
+
+    @FXML
+    private Button logoutButton;
+
+    @FXML
+    private Button customertablebutton;
 
     @FXML
     private Label nameLabel;
@@ -112,39 +122,30 @@ public class HomeController implements Initializable{
         createUsername = createUsername.trim();
         createPassword = createPassword.trim();
 
-        if (createUsername.length() == 0){
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setContentText("no username provided");
-            alert.showAndWait();
+        if (createUsername.isEmpty() || createPassword.isEmpty()) {
+            showAlert(AlertType.ERROR, "All fields must be filled");
             return;
-    
-          
+        }
+        if (createUsername.length() == 0){
+            showAlert(AlertType.ERROR, "You must input a username.");
+            return;
         }
 
         if (createPassword.length() == 0){
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setContentText("no password provided");
-            alert.showAndWait();
+            showAlert(AlertType.ERROR, "You must input a password.");
             return;
-           
-      
         }
 
         User user = new User("", createUsername, createPassword, "");
         if (DatabaseHandler.addUser(user)){
             System.out.println("Username: " + createUsername);
             System.out.println("Password: " + createPassword);
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setContentText("Account Created");
-            alert.showAndWait();
+            showAlert(AlertType.INFORMATION, "Successfully created");
             displayUsers();
-          
-
         }
         else{
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setContentText("Cannot Create Account");
-            alert.showAndWait();
+            showAlert(AlertType.ERROR, "Cannot created.");
+            return;
         }
     }
     
@@ -154,16 +155,12 @@ public class HomeController implements Initializable{
         User user = userstable.getSelectionModel().getSelectedItem();
         String username = user.getUsername();
 
+        
         if(DatabaseHandler.deleteUser(user)){
-            System.out.println("User: " + username + " has deleted");
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setContentText("User deleted");
-            alert.showAndWait();
+            showAlert(AlertType.INFORMATION, "Successfully deleted");
             displayUsers();
         }else{
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setContentText("Cannot Delete User");
-            alert.showAndWait();
+            showAlert(AlertType.ERROR, "Unsuccessfully deleted");
             return;
 
         }
@@ -171,69 +168,105 @@ public class HomeController implements Initializable{
     }
 
     @FXML
-    private void updateUser(ActionEvent event){
-        
-        String newUsername = usernametextfield.getText();
-        String newPassword = passwordtextfield.getText();
-        String oldUsername = usernametextfield.getPromptText();
-
-        newUsername = newUsername.trim();
-        newPassword = newPassword.trim();
-
-        if (newUsername.length() == 0){
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setContentText("no username provided");
-            alert.showAndWait();
-            return;
+    private void updateUser(ActionEvent event) {
     
-          
-        }
-
-        if (newPassword.length() == 0){
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setContentText("no password provided");
-            alert.showAndWait();
-            return;
-           
-      
-        }
-
-        User user = new User("", newUsername, newPassword, "");
-        if (DatabaseHandler.updateUser(user, oldUsername)){
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setContentText("User updated");
-            alert.showAndWait();
-            displayUsers();
-          
-        } else{
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setContentText("Cannot Update User");
-            alert.showAndWait();
-        }
-    }
-
-    @FXML
-    private void handleUserSelection(MouseEvent event) {
         User selectedUser = userstable.getSelectionModel().getSelectedItem();
-        if (selectedUser != null) {
-            loadUserDetails(selectedUser);
+
+        if (selectedUser == null) {
+            showAlert(AlertType.ERROR, "Please select a user to update.");
+            return;
+        }
+
+        String oldUsername = selectedUser.getUsername();
+        String newUsername = usernametextfield.getText().trim();
+        String newPassword = passwordtextfield.getText().trim();
+
+       
+        if (newUsername.isEmpty() || newPassword.isEmpty()) {
+            showAlert(AlertType.ERROR, "All fields must be filled");
+            return;
+        }
+        if (newUsername.length() == 0) {
+            showAlert(AlertType.ERROR, "You must input a username.");
+            return;
+        }
+
+        if (newPassword.length() == 0) {
+            showAlert(AlertType.ERROR, "You must input a password.");
+            return;
+        
+        }
+
+        User updatedUser = new User(selectedUser.getUserid(), newUsername, newPassword, "");
+        if(DatabaseHandler.updateUser(oldUsername, updatedUser)){
+            showAlert(AlertType.INFORMATION, "Successfully updated");
+            displayUsers();
+            
+        }else{
+            showAlert(AlertType.ERROR, "Unsuccessfully updated");
+            return;
+        }
+    
+} 
+    private void showAlert(Alert.AlertType type, String message) {
+        Alert alert = new Alert(type);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+
+    @FXML
+    private void logoutAdmin(ActionEvent event) {
+    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    alert.setTitle("Logout Confirmation");
+    alert.setHeaderText("You are about to log out.");
+    alert.setContentText("Do you want to continue?");
+
+    Optional<ButtonType> result = alert.showAndWait();
+    if (result.isPresent() && result.get() == ButtonType.OK) {
+        try {
+            // Close the current window
+            logoutButton.getScene().getWindow().hide();
+
+            // Load the login page
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("loginpage.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Login Page");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
-    private void loadUserDetails(User currentUser) {
-        usernametextfield.setText(currentUser.getUsername()); // Pre-fill username
-        usernametextfield.setPromptText(currentUser.getUsername()); // Store old username
-        passwordtextfield.setText(currentUser.getPassword()); // Pre-fill password
     }
 
     @FXML
-    private void handleFocusGained(MouseEvent event) {
-        TextField source = (TextField) event.getSource();
-        if (source.getText().equals(source.getPromptText())) {
-            source.clear(); // Clear prompt text when user focuses on the field
-        }
-    }
+    private void customertableHandler(ActionEvent event) {
 
+        try {
+            // Load FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("customertablepage.fxml"));
+            Parent root = loader.load();
+
+            // Load stage and scene
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+            stage.centerOnScreen();
+
+        } catch (Exception e) {
+            System.out.println("Error loading customertablepage.fxml: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+    }
 }
+
+
+    
 
 
     

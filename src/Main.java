@@ -10,13 +10,13 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
 
         //as a main page
-        Parent root = FXMLLoader.load(getClass().getResource("loginpage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("iridemotologinpage.fxml"));
 
         //title of main page
         primaryStage.setTitle("Log in");
 
         //window size
-        primaryStage.setScene(new Scene(root, 800, 500));
+        primaryStage.setScene(new Scene(root, 450, 700));
 
         primaryStage.setResizable(false);
 

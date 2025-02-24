@@ -43,12 +43,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="700.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="700.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SignUpController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
          <children>
             <Pane prefHeight="27.0" prefWidth="450.0" style="-fx-background-color: #7a0000;" />
-            <Button fx:id="returnloginpage" layoutX="12.0" layoutY="36.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="38.0" style="-fx-background-color: white; -fx-border-color: #D3D3D3.; -fx-background-radius: 10; -fx-border-radius: 10;">
+            <Button fx:id="returnloginpage" layoutX="12.0" layoutY="36.0" mnemonicParsing="false" onAction="#returntocustomerloginHandler" prefHeight="34.0" prefWidth="38.0" style="-fx-background-color: white; -fx-border-color: #D3D3D3.; -fx-background-radius: 10; -fx-border-radius: 10;">
                <font>
                   <Font size="15.0" />
                </font>
@@ -66,7 +66,10 @@
                   <Font name="Arial" size="13.0" />
                </font>
             </Label>
-            <TextField fx:id="firstnametextfield" layoutX="124.0" layoutY="127.0" prefHeight="27.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: grey; -fx-border-radius: 5;" />
+            <TextField fx:id="firstnametextfield" layoutX="124.0" layoutY="127.0" prefHeight="27.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: grey; -fx-border-radius: 5;">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor></TextField>
             <Label layoutX="21.0" layoutY="172.0" text="Lastname:">
                <font>
                   <Font name="Arial" size="13.0" />
@@ -112,24 +115,48 @@
                   <Font name="Arial" size="13.0" />
                </font>
             </Label>
-            <Button fx:id="signupnextbutton" layoutX="50.0" layoutY="610.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="350.0" style="-fx-text-fill: black; -fx-background-color: #D3D3D3; -fx-font-weight: bold; -fx-background-radius: 20; -fx-font-size: 15; -fx-border-radius: 20;" text="Next" />
+            <Button fx:id="signupnextbutton" layoutX="50.0" layoutY="610.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="350.0" style="-fx-text-fill: black; -fx-background-color: #D3D3D3; -fx-font-weight: bold; -fx-background-radius: 20; -fx-font-size: 15; -fx-border-radius: 20;" text="Next">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             <ImageView blendMode="MULTIPLY" fitHeight="18.0" fitWidth="20.0" layoutX="21.0" layoutY="44.0">
                <image>
                   <Image url="@../../../Downloads/back-arrow.png" />
                </image>
             </ImageView>
-            <TextField fx:id="lastnametextfield" layoutX="124.0" layoutY="166.0" prefHeight="27.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: grey; -fx-border-radius: 5;" />
-            <TextField fx:id="conumbertextfield" layoutX="124.0" layoutY="291.0" prefHeight="27.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: grey; -fx-border-radius: 5;" />
-            <TextField fx:id="emailaccounttextfield" layoutX="124.0" layoutY="328.0" prefHeight="27.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: grey; -fx-border-radius: 5;" />
-            <TextField fx:id="streettextfield" layoutX="124.0" layoutY="416.0" prefHeight="27.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: grey; -fx-border-radius: 5;" />
-            <TextField fx:id="citytextfield" layoutX="124.0" layoutY="453.0" prefHeight="27.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: grey; -fx-border-radius: 5;" />
-            <TextField fx:id="zipcodetextfield" layoutX="124.0" layoutY="490.0" prefHeight="27.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: grey; -fx-border-radius: 5;" />
+            <TextField fx:id="lastnametextfield" layoutX="124.0" layoutY="166.0" prefHeight="27.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: grey; -fx-border-radius: 5;">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor></TextField>
+            <TextField fx:id="conumbertextfield" layoutX="124.0" layoutY="291.0" prefHeight="27.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: grey; -fx-border-radius: 5;">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor></TextField>
+            <TextField fx:id="emailaccounttextfield" layoutX="124.0" layoutY="328.0" prefHeight="27.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: grey; -fx-border-radius: 5;">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor></TextField>
+            <TextField fx:id="streettextfield" layoutX="124.0" layoutY="416.0" prefHeight="27.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: grey; -fx-border-radius: 5;">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor></TextField>
+            <TextField fx:id="citytextfield" layoutX="124.0" layoutY="453.0" prefHeight="27.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: grey; -fx-border-radius: 5;">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor></TextField>
+            <TextField fx:id="zipcodetextfield" layoutX="124.0" layoutY="490.0" prefHeight="27.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: grey; -fx-border-radius: 5;">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor></TextField>
             <Label layoutX="21.0" layoutY="209.0" text="Password:">
                <font>
                   <Font name="Arial" size="13.0" />
                </font>
             </Label>
-            <TextField fx:id="passwordtextfield" layoutX="124.0" layoutY="203.0" prefHeight="27.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: grey; -fx-border-radius: 5;" />
+            <TextField fx:id="passwordtextfield" layoutX="124.0" layoutY="203.0" prefHeight="27.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: grey; -fx-border-radius: 5;">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor></TextField>
          </children>
     </AnchorPane>
   </children>

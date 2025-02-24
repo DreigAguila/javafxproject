@@ -53,7 +53,7 @@
                         <Image url="@../../../Downloads/Untitled%20design%20(3).png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="irmloginbutton" layoutX="26.0" layoutY="550.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="395.0" style="-fx-text-fill: white; -fx-background-color: black; -fx-font-weight: bold; -fx-background-radius: 20; -fx-font-size: 12;" text="Log in">
+                  <Button fx:id="irmloginbutton" layoutX="26.0" layoutY="550.0" mnemonicParsing="false" onAction="#irmloginHandler" prefHeight="42.0" prefWidth="395.0" style="-fx-text-fill: white; -fx-background-color: black; -fx-font-weight: bold; -fx-background-radius: 20; -fx-font-size: 12;" text="Log in">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>
@@ -69,7 +69,7 @@
                   </Label>
                </children>
             </Pane>
-            <Button fx:id="irmsignupbutton" layoutX="27.0" layoutY="600.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="395.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-font-size: 12; -fx-border-color: black; -fx-border-radius: 20;" text="Sign up">
+            <Button fx:id="irmsignupbutton" layoutX="27.0" layoutY="600.0" mnemonicParsing="false" onAction="#irmsignupHandler" prefHeight="42.0" prefWidth="395.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-font-size: 12; -fx-border-color: black; -fx-border-radius: 20;" text="Sign up">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>

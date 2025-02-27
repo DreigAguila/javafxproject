@@ -40,29 +40,27 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CustomerTableController">
+<VBox prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CustomerTableController">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS" />
-      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0">
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="799.0" prefWidth="900.0">
          <children>
-            <Pane layoutX="14.0" layoutY="19.0" prefHeight="667.0" prefWidth="233.0" style="-fx-background-color: #9B1B30; -fx-border-color: #000000;">
+            <Pane layoutX="14.0" layoutY="19.0" prefHeight="770.0" prefWidth="233.0" style="-fx-background-color: #9B1B30; -fx-border-color: #000000;">
                <children>
-                  <Button fx:id="customercreatebutton" layoutX="64.0" layoutY="521.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-color: #000000; -fx-border-radius: 6;" text="Create">
+                  <Button fx:id="customercreatebutton" layoutX="64.0" layoutY="521.0" mnemonicParsing="false" onAction="#createCustomer" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-color: #000000; -fx-border-radius: 6;" text="Create">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="customerupdatebutton" layoutX="64.0" layoutY="565.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-color: #000000; -fx-border-radius: 6;" text="Update">
+                  <Button fx:id="customerupdatebutton" layoutX="64.0" layoutY="563.0" mnemonicParsing="false" onAction="#updateCustomer" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-color: #000000; -fx-border-radius: 6;" text="Update">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="customerdeletebutton" layoutX="64.0" layoutY="605.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="100.0" style="-fx-background-color: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #000000;" text="Delete">
+                  <Button fx:id="customerdeletebutton" layoutX="64.0" layoutY="605.0" mnemonicParsing="false" onAction="#deleteCustomer" prefHeight="20.0" prefWidth="100.0" style="-fx-background-color: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #000000;" text="Delete">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -142,29 +140,29 @@
                   <Font name="Arial Bold" size="15.0" />
                </font>
             </Label>
-            <TableView fx:id="userstable" layoutX="257.0" layoutY="67.0" prefHeight="579.0" prefWidth="628.0" style="-fx-border-color: #000000;">
+            <TableView fx:id="customerTable" layoutX="257.0" layoutY="67.0" prefHeight="680.0" prefWidth="628.0" style="-fx-border-color: #000000;">
                <columns>
-                  <TableColumn fx:id="useridcolumn" prefWidth="83.199951171875" text="Customer_ID" />
-                  <TableColumn fx:id="usernamecolumn" prefWidth="117.5999755859375" text="CustomerFullName" />
-                  <TableColumn fx:id="passwordcolumn" prefWidth="80.80001831054688" text="Password" />
-                  <TableColumn fx:id="accountcreatedcolumn" prefWidth="75.20001220703125" text="City" />
-                  <TableColumn prefWidth="55.199951171875" text="Zip" />
-                  <TableColumn minWidth="0.0" prefWidth="52.800048828125" text="Street" />
-                  <TableColumn prefWidth="128.0" text="ContactNumber" />
-                  <TableColumn prefWidth="88.0" text="Email" />
+                  <TableColumn fx:id="customerIDcolumn" prefWidth="100.0" text="Customer_ID" />
+                  <TableColumn fx:id="customerfullnamecolumn" prefWidth="150.0" text="CustomerFullName" />
+                  <TableColumn fx:id="passwordcolumn" prefWidth="150.0" text="Password" />
+                  <TableColumn fx:id="citycolumn" prefWidth="150.0" text="City" />
+                  <TableColumn fx:id="zipcolumn" prefWidth="100.0" text="Zip Code" />
+                  <TableColumn fx:id="streetcolumn" minWidth="0.0" prefWidth="150.0" text="Street" />
+                  <TableColumn fx:id="contactnumbercolumn" prefWidth="150.0" text="ContactNumber" />
+                  <TableColumn fx:id="emailcolumn" prefWidth="150.0" text="Email" />
                </columns>
             </TableView>
-            <Button fx:id="logoutButton" layoutX="755.0" layoutY="655.0" mnemonicParsing="false" onAction="#logoutAdmin" prefHeight="30.0" prefWidth="126.0" style="-fx-background-color: #a60000; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-radius: 6;" text="Log Out" textFill="WHITE">
+            <Button fx:id="logoutButton" layoutX="759.0" layoutY="756.0" mnemonicParsing="false" onAction="#logoutAdmin" prefHeight="30.0" prefWidth="126.0" style="-fx-background-color: #a60000; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-radius: 6;" text="Log Out" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="admintablebutton" layoutX="422.0" layoutY="655.0" mnemonicParsing="false" onAction="#admintableHandler" prefHeight="30.0" prefWidth="154.0" style="-fx-background-color: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #000000;" text="Admin Table">
+            <Button fx:id="admintablebutton" layoutX="422.0" layoutY="756.0" mnemonicParsing="false" onAction="#admintableHandler" prefHeight="30.0" prefWidth="154.0" style="-fx-background-color: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #000000;" text="Admin Table">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="ridertablebutton" layoutX="257.0" layoutY="655.0" mnemonicParsing="false" onAction="#ridertableHandler" prefHeight="30.0" prefWidth="154.0" style="-fx-background-color: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #000000;" text="Rider Table">
+            <Button fx:id="ridertablebutton" layoutX="257.0" layoutY="756.0" mnemonicParsing="false" onAction="#ridertableHandler" prefHeight="30.0" prefWidth="154.0" style="-fx-background-color: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #000000;" text="Rider Table">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

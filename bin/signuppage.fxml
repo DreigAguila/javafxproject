@@ -115,7 +115,7 @@
                   <Font name="Arial" size="13.0" />
                </font>
             </Label>
-            <Button fx:id="signupnextbutton" layoutX="50.0" layoutY="610.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="350.0" style="-fx-text-fill: black; -fx-background-color: #D3D3D3; -fx-font-weight: bold; -fx-background-radius: 20; -fx-font-size: 15; -fx-border-radius: 20;" text="Next">
+            <Button fx:id="createaccountButton" layoutX="50.0" layoutY="610.0" mnemonicParsing="false" onAction="#createaccountHandler" prefHeight="42.0" prefWidth="350.0" style="-fx-text-fill: black; -fx-background-color: #D3D3D3; -fx-font-weight: bold; -fx-background-radius: 20; -fx-font-size: 15; -fx-border-radius: 20;" text="Create Your Account">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>

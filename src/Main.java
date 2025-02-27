@@ -13,7 +13,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("iridemotologinpage.fxml"));
 
         //title of main page
-        primaryStage.setTitle("Log in");
+        primaryStage.setTitle("IRideMoto App");
 
         //window size
         primaryStage.setScene(new Scene(root, 450, 700));

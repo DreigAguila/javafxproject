@@ -38,10 +38,6 @@ public class LoginController {
     @FXML
     Button returntouserbutton;
 
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-
     public void loginbuttonhandler(ActionEvent event) throws IOException {
         String uname = usernametextfield.getText().trim();
         String pword = passwordtextfield.getText().trim();
@@ -90,6 +86,7 @@ public class LoginController {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
+            stage.centerOnScreen();
         } else {
             System.out.println("Login unsuccessful");
 

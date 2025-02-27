@@ -43,15 +43,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="450.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="450.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ConnectGmailController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
             <Pane prefHeight="27.0" prefWidth="450.0" style="-fx-background-color: #7a0000;" />
-            <Button fx:id="returnloginpage" layoutX="16.0" layoutY="39.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="38.0" style="-fx-background-color: white; -fx-border-color: #D3D3D3.; -fx-background-radius: 10; -fx-border-radius: 10;">
+            <Button fx:id="returnloginpage" layoutX="10.0" layoutY="32.0" mnemonicParsing="false" onAction="#returntocustomerloginHandler" prefHeight="49.0" prefWidth="50.0" style="-fx-background-color: white; -fx-border-color: #D3D3D3.; -fx-background-radius: 10; -fx-border-radius: 10;">
                <font>
                   <Font size="15.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <ImageView fitHeight="18.0" fitWidth="20.0" layoutX="25.0" layoutY="47.0">
                <image>
@@ -72,7 +75,7 @@
                   <Font name="Candara Bold" size="15.0" />
                </font>
             </Label>
-            <Button fx:id="logingmailbutton" layoutX="50.0" layoutY="612.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="350.0" style="-fx-text-fill: black; -fx-background-color: #D3D3D3; -fx-font-weight: bold; -fx-background-radius: 20; -fx-font-size: 15; -fx-border-radius: 20;" text="Next">
+            <Button fx:id="logingmailbutton" layoutX="50.0" layoutY="612.0" mnemonicParsing="false" onAction="#connectusinggmailHandler" prefHeight="42.0" prefWidth="350.0" style="-fx-text-fill: black; -fx-background-color: #D3D3D3; -fx-font-weight: bold; -fx-background-radius: 20; -fx-font-size: 15; -fx-border-radius: 20;" text="Connect Using Gmail">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>

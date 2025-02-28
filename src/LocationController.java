@@ -53,4 +53,48 @@ public class LocationController {
 
     }
 
+    @FXML
+    private void pickupHandler(ActionEvent event) {
+
+        try {
+            // Load FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("pickupPage.fxml"));
+            Parent root = loader.load();
+
+            // Load stage and scene
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+            stage.centerOnScreen();
+
+        } catch (Exception e) {
+            System.out.println("Error loading pickupPage.fxml: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+    }
+
+    @FXML
+    private void wheretoHandler(ActionEvent event) {
+
+        try {
+            // Load FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("wheretoPage.fxml"));
+            Parent root = loader.load();
+
+            // Load stage and scene
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+            stage.centerOnScreen();
+
+        } catch (Exception e) {
+            System.out.println("Error loading wheretoPage.fxml: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+    }
+
 }

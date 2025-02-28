@@ -83,7 +83,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Button fx:id="whereFromButton" alignment="BASELINE_LEFT" layoutX="20.0" layoutY="222.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="411.0" style="-fx-background-color: white; -fx-border-color: #E0E0E0; -fx-background-radius: 8; -fx-border-radius: 8; -fx-font-weight: bold; -fx-font-size: 15;" text="Pick up at?" textAlignment="RIGHT">
+            <Button fx:id="whereFromButton" alignment="BASELINE_LEFT" layoutX="20.0" layoutY="222.0" mnemonicParsing="false" onAction="#pickupHandler" prefHeight="58.0" prefWidth="411.0" style="-fx-background-color: white; -fx-border-color: #E0E0E0; -fx-background-radius: 8; -fx-border-radius: 8; -fx-font-weight: bold; -fx-font-size: 15;" text="Pick up at?" textAlignment="RIGHT">
                <font>
                   <Font name="Arial" size="12.0" />
                </font>
@@ -106,7 +106,7 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <Button fx:id="whereToButton" alignment="BASELINE_LEFT" layoutX="20.0" layoutY="327.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="411.0" style="-fx-background-color: white; -fx-border-color: #E0E0E0; -fx-background-radius: 8; -fx-border-radius: 8; -fx-font-weight: bold; -fx-font-size: 15;" text="Where To?" textAlignment="RIGHT">
+            <Button fx:id="whereToButton" alignment="BASELINE_LEFT" layoutX="20.0" layoutY="327.0" mnemonicParsing="false" onAction="#wheretoHandler" prefHeight="58.0" prefWidth="411.0" style="-fx-background-color: white; -fx-border-color: #E0E0E0; -fx-background-radius: 8; -fx-border-radius: 8; -fx-font-weight: bold; -fx-font-size: 15;" text="Where To?" textAlignment="RIGHT">
                <font>
                   <Font name="Arial" size="12.0" />
                </font>

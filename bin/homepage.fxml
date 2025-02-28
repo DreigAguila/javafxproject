@@ -94,7 +94,7 @@
             <Font name="Arial Bold" size="23.0" />
           </font>
         </Label>
-            <Label fx:id="usernamedisplay" alignment="CENTER" layoutX="378.0" layoutY="29.0" style="&#10;" text="Null" textAlignment="CENTER" textFill="#a60000" wrapText="false">
+            <Label fx:id="usernamedisplay" alignment="CENTER" layoutX="378.0" layoutY="29.0" style="&#10;" text="Admin" textAlignment="CENTER" textFill="#a60000" wrapText="false">
                <font>
                   <Font name="Arial Rounded MT Bold" size="23.0" />
                </font>

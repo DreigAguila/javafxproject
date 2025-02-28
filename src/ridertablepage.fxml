@@ -50,17 +50,17 @@
          <children>
             <Pane layoutX="14.0" layoutY="19.0" prefHeight="770.0" prefWidth="233.0" style="-fx-background-color: #9B1B30; -fx-border-color: #000000;">
                <children>
-                  <Button fx:id="ridercreatebutton" layoutX="64.0" layoutY="603.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-color: #000000; -fx-border-radius: 6;" text="Create">
+                  <Button fx:id="ridercreatebutton" layoutX="64.0" layoutY="603.0" mnemonicParsing="false" onAction="#createRider" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-color: #000000; -fx-border-radius: 6;" text="Create">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="riderupdatebutton" layoutX="64.0" layoutY="642.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-color: #000000; -fx-border-radius: 6;" text="Update">
+                  <Button fx:id="riderupdatebutton" layoutX="64.0" layoutY="642.0" mnemonicParsing="false" onAction="#updateRider" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-color: #000000; -fx-border-radius: 6;" text="Update">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="riderdeletebutton" layoutX="64.0" layoutY="681.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="100.0" style="-fx-background-color: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #000000;" text="Delete">
+                  <Button fx:id="riderdeletebutton" layoutX="64.0" layoutY="681.0" mnemonicParsing="false" onAction="#deleteRider" prefHeight="20.0" prefWidth="100.0" style="-fx-background-color: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #000000;" text="Delete">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -130,7 +130,7 @@
                   <Font name="Arial Bold" size="23.0" />
                </font>
             </Label>
-            <Label fx:id="usernamedisplay" alignment="CENTER" layoutX="378.0" layoutY="29.0" style="&#10;" text="Null" textAlignment="CENTER" textFill="#a60000" wrapText="false">
+            <Label fx:id="riderusernamedisplay" alignment="CENTER" layoutX="378.0" layoutY="29.0" style="&#10;" text="Admin" textAlignment="CENTER" textFill="#a60000" wrapText="false">
                <font>
                   <Font name="Arial Rounded MT Bold" size="23.0" />
                </font>

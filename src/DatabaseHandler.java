@@ -374,6 +374,25 @@ public class DatabaseHandler {
                 return null; // Return null if login fails
             }
 
+
+     // Generates a new Rider_id
+     private static String generateRiderId() {
+        getInstance();
+        String riderId = null;
+        try {
+            String query = "SELECT IFNULL(MAX(CAST(SUBSTRING(Rider_id, 3, 3) AS UNSIGNED)), 0) + 1 AS next_id FROM RiderTable";
+            pstatement = getDBConnection().prepareStatement(query);
+            ResultSet rs = pstatement.executeQuery();
+            if (rs.next()) {
+                int nextId = rs.getInt("next_id");
+                riderId = String.format("R-%03d", nextId);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return riderId;
+    }
+
     public static ResultSet getRider() {
         getInstance();
         ResultSet result = null;
@@ -384,7 +403,7 @@ public class DatabaseHandler {
                "LEFT JOIN VehicleTable V ON R.Rider_id = V.Rider_id " +
                "LEFT JOIN RiderRatingTable RR ON R.Rider_id = RR.Rider_id " +
                "ORDER BY R.Rider_id ASC";
-               
+
                 pstatement = getDBConnection().prepareStatement(query);
                 result = pstatement.executeQuery();
             } catch (Exception e) {
@@ -392,6 +411,175 @@ public class DatabaseHandler {
         }
         return result;
     }
-    
 
+    public static boolean addRider(Rider rider){
+        getInstance();
+        try {
+            String riderId = generateRiderId();
+            if (riderId == null) {
+                return false;
+            }
+            
+              // Insert into RiderTable
+            String riderQuery = "INSERT INTO RiderTable (Rider_id, RiderFullname, RiderContactNo) VALUES (?, ?, ?)";
+            pstatement = getDBConnection().prepareStatement(riderQuery);
+            pstatement.setString(1, riderId);
+            pstatement.setString(2, rider.getRiderfullname());
+            pstatement.setString(3, rider.getRidercontactnumber());
+            pstatement.executeUpdate();
+            pstatement.close();
+
+            /// Insert into RiderLocationTable
+            String locationQuery = "INSERT INTO RiderLocationTable (Rider_id, Zip, City, Street) VALUES (?, ?, ?, ?)";
+            pstatement = getDBConnection().prepareStatement(locationQuery);
+            pstatement.setString(1, riderId);
+            pstatement.setString(2, rider.getZip());
+            pstatement.setString(3, rider.getCity());
+            pstatement.setString(4, rider.getStreet());
+            pstatement.executeUpdate();
+            pstatement.close();
+
+            // Insert into VehicleTable
+            String vehicleQuery = "INSERT INTO VehicleTable (PlateNumber, Vehicle, Rider_id) VALUES (?, ?, ?)";
+            pstatement = getDBConnection().prepareStatement(vehicleQuery);
+            pstatement.setString(1, rider.getPlatenumber()); // Ensure Rider object has plate number
+            pstatement.setString(2, rider.getVehicle());
+            pstatement.setString(3, riderId);
+            pstatement.executeUpdate();
+            pstatement.close();
+            
+            // Calculate shipontime based on rating
+             String shipontime = calculateShipOnTime(rider.getRating());
+             // Insert into RiderRatingTable
+            String ratingQuery = "INSERT INTO RiderRatingTable (Rider_id, Rating, ShipOnTime) VALUES (?, ?, ?)";
+            pstatement = getDBConnection().prepareStatement(ratingQuery);
+            pstatement.setString(1, riderId);
+            pstatement.setString(2, rider.getRating()); // Ensure Rider object has a rating
+            pstatement.setString(3, shipontime);
+            pstatement.executeUpdate();
+            pstatement.close();
+            
+            return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return false;
+    }
+    
+    public static boolean updateRider(String oldRiderName, Rider rider) {
+        getInstance();
+        try {
+            String riderId = rider.getRiderid();
+            if (riderId == null) {
+                return false;
+            }      
+            // Update RiderTable
+            String riderQuery = "UPDATE RiderTable SET RiderFullname = ?, RiderContactNo = ? WHERE Rider_id = ?";
+            pstatement = getDBConnection().prepareStatement(riderQuery);
+            pstatement.setString(1, rider.getRiderfullname());
+            pstatement.setString(2, rider.getRidercontactnumber());
+            pstatement.setString(3, riderId);
+            pstatement.executeUpdate();
+            pstatement.close();
+
+            // Update RiderLocationTable
+            String locationQuery = "UPDATE RiderLocationTable SET Zip = ?, City = ?, Street = ? WHERE Rider_id = ?";
+            pstatement = getDBConnection().prepareStatement(locationQuery);
+            pstatement.setString(1, rider.getZip());
+            pstatement.setString(2, rider.getCity());
+            pstatement.setString(3, rider.getStreet());
+            pstatement.setString(4, riderId);
+            pstatement.executeUpdate();
+            pstatement.close();
+
+            // Update VehicleTable
+            String vehicleQuery = "UPDATE VehicleTable SET PlateNumber = ?, Vehicle = ? WHERE Rider_id = ?";
+            pstatement = getDBConnection().prepareStatement(vehicleQuery);
+            pstatement.setString(1, rider.getPlatenumber());
+            pstatement.setString(2, rider.getVehicle());
+            pstatement.setString(3, riderId);
+            pstatement.executeUpdate();
+            pstatement.close();
+
+            // Calculate shipontime based on rating
+            String shipontime = calculateShipOnTime(rider.getRating());
+
+            // Update RiderRatingTable
+            String ratingQuery = "UPDATE RiderRatingTable SET Rating = ?, ShipOnTime = ? WHERE Rider_id = ?";
+            pstatement = getDBConnection().prepareStatement(ratingQuery);
+            pstatement.setString(1, rider.getRating());
+            pstatement.setString(2, shipontime);
+            pstatement.setString(3, riderId);
+            pstatement.executeUpdate();
+            pstatement.close();
+
+            return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return false;
+    }
+
+    public static boolean deleteRider(String riderFullName) {
+        getInstance();
+        try {
+            // Delete from RiderRatingTable
+            String ratingQuery = "DELETE FROM RiderRatingTable WHERE Rider_id = (SELECT Rider_id FROM RiderTable WHERE RiderFullName = ?)";
+            pstatement = getDBConnection().prepareStatement(ratingQuery);
+            pstatement.setString(1, riderFullName);
+            pstatement.executeUpdate();
+    
+            // Delete from VehicleTable
+            String vehicleQuery = "DELETE FROM VehicleTable WHERE Rider_id = (SELECT Rider_id FROM RiderTable WHERE RiderFullName = ?)";
+            pstatement = getDBConnection().prepareStatement(vehicleQuery);
+            pstatement.setString(1, riderFullName);
+            pstatement.executeUpdate();
+    
+            // Delete from RiderLocationTable
+            String locationQuery = "DELETE FROM RiderLocationTable WHERE Rider_id = (SELECT Rider_id FROM RiderTable WHERE RiderFullName = ?)";
+            pstatement = getDBConnection().prepareStatement(locationQuery);
+            pstatement.setString(1, riderFullName);
+            pstatement.executeUpdate();
+    
+            // Delete from RiderTable
+            String riderQuery = "DELETE FROM RiderTable WHERE RiderFullName = ?";
+            pstatement = getDBConnection().prepareStatement(riderQuery);
+            pstatement.setString(1, riderFullName);
+            int res = pstatement.executeUpdate();
+    
+            return res > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
+    private static String calculateShipOnTime(String rating) {
+        int ratingValue = Integer.parseInt(rating);
+        String shipontime = "";
+        switch (ratingValue) {
+            case 5:
+                shipontime = "99%";
+                break;
+            case 4:
+                shipontime = "80%";
+                break;
+            case 3:
+                shipontime = "60%";
+                break;
+            case 2:
+                shipontime = "40%";
+                break;
+            case 1:
+                shipontime = "20%";
+                break;
+            default:
+                shipontime = "0%";
+                break;
+        }
+        return shipontime;
+    }
+
+
+    
 }

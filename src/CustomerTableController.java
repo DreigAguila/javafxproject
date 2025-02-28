@@ -109,6 +109,11 @@ public class CustomerTableController implements Initializable{
     private final Pattern phoneNumberPattern = Pattern.compile("^09\\d{9}$");
 
 
+    public void displayName(String username)
+    {
+        usernamedisplay.setText(username);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb){
         initializeCol();
@@ -352,6 +357,8 @@ public class CustomerTableController implements Initializable{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ridertablepage.fxml"));
             Parent root = loader.load();
 
+            RiderTableController riderTableController = loader.getController();
+            riderTableController.displayName(usernamedisplay.getText());
             // Load stage and scene
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
@@ -372,6 +379,10 @@ public class CustomerTableController implements Initializable{
            // Load FXML file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("homepage.fxml"));
             Parent root = loader.load();
+            
+            HomeController homeController = loader.getController();
+            // Pass username from textfield to displayName() method
+            homeController.displayName(usernamedisplay.getText());
             
             // Load stage and scene
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

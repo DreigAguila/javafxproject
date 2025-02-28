@@ -72,10 +72,12 @@ public class HomeController implements Initializable{
     @FXML
     private TextField passwordtextfield;
 
+    @FXML
+    private Label usernamelabel;
 
     public void displayName(String username)
     {
-        usernamedisplay.setText("Admin");
+        usernamedisplay.setText(username);
     }
 
     @Override
@@ -253,6 +255,10 @@ public class HomeController implements Initializable{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("customertablepage.fxml"));
             Parent root = loader.load();
 
+
+            CustomerTableController customerTableController = loader.getController();
+            customerTableController.displayName(usernamedisplay.getText());
+
             // Load stage and scene
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
@@ -274,6 +280,10 @@ public class HomeController implements Initializable{
             // Load FXML file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ridertablepage.fxml"));
             Parent root = loader.load();
+
+
+            RiderTableController riderTableController = loader.getController();
+            riderTableController.displayName(usernamedisplay.getText());
 
             // Load stage and scene
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

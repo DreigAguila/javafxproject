@@ -78,7 +78,7 @@
                </children>
             </Pane>
             <Line endX="335.3999938964844" layoutX="116.0" layoutY="641.0" startX="-115.00001525878906" style="-fx-stroke: #E0E0E0;" />
-            <Button fx:id="pathtobookingbutton" layoutX="29.0" layoutY="153.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="60.0" style="-fx-background-color: #FEE3DC; -fx-background-radius: 200; -fx-border-radius: 200;">
+            <Button fx:id="pathtobookingbutton" layoutX="29.0" layoutY="153.0" mnemonicParsing="false" onAction="#bookinglocationHandler" prefHeight="59.0" prefWidth="60.0" style="-fx-background-color: #FEE3DC; -fx-background-radius: 200; -fx-border-radius: 200;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>

@@ -1,4 +1,6 @@
 import java.sql.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DatabaseHandler {
     private static DatabaseHandler handler = null;
@@ -581,5 +583,71 @@ public class DatabaseHandler {
     }
 
 
+    // Retrieves the fare from the fare_matrix table
+    public static double getFare(String origin, String destination) throws SQLException {
+        String query = "SELECT fare FROM fare_matrix WHERE origin = ? AND destination = ?";
+        try (Connection connection = getDBConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, origin);
+            statement.setString(2, destination);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    return resultSet.getDouble("fare");
+                } else {
+                    return -1; // Indicate that no fare was found
+                }
+            }
+        }
+    }
+
+
+    private static String normalizeCityName(String cityName) {
+    cityName = cityName.trim().toLowerCase(); // Trim spaces & convert to lowercase
+
+    // Map common abbreviations and alternative names
+    Map<String, String> cityAliases = new HashMap<>();
+    cityAliases.put("qc", "Quezon City");
+    cityAliases.put("quezon", "Quezon City");
+    cityAliases.put("manila", "Manila");
+    cityAliases.put("makati", "Makati");
+
+    // Return the full name if an alias exists; otherwise, return the original input
+    return cityAliases.getOrDefault(cityName, capitalize(cityName));
+}
+
+    // Capitalizes first letter of each word (for database consistency)
+    private static String capitalize(String cityName) {
+        String[] words = cityName.split("\\s+");
+        StringBuilder capitalized = new StringBuilder();
+        for (String word : words) {
+            capitalized.append(Character.toUpperCase(word.charAt(0)))
+                    .append(word.substring(1)).append(" ");
+        }
+        return capitalized.toString().trim();
+}
+
+    public static double getFareNormalized(String origin, String destination) throws SQLException {
+    String normalizedOrigin = normalizeCityName(origin);
+    String normalizedDestination = normalizeCityName(destination);
+
+    System.out.println("🔍 Searching fare for: " + normalizedOrigin + " → " + normalizedDestination);
+
+    String query = "SELECT fare FROM fare_matrix WHERE origin = ? AND destination = ?";
     
+    try (Connection connection = getDBConnection();
+         PreparedStatement statement = connection.prepareStatement(query)) {
+        statement.setString(1, normalizedOrigin);
+        statement.setString(2, normalizedDestination);
+
+        try (ResultSet resultSet = statement.executeQuery()) {
+            if (resultSet.next()) {
+                System.out.println("✅ Found fare: " + resultSet.getDouble("fare"));
+                return resultSet.getDouble("fare");
+            } else {
+                System.out.println("❌ No fare found.");
+                return -1;
+            }
+        }
+     }
+    }
 }

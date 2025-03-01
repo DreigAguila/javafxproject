@@ -203,6 +203,8 @@ public class CustomerEditLogoutController implements Initializable {
     }
     @FXML
     private void logoutCustomer(ActionEvent event) {
+    // Reset stored location data
+    LocationController.resetLocationData();
 
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
     alert.setTitle("Logout Confirmation");

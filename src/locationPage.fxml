@@ -119,7 +119,7 @@
                   <Image url="@../../../Downloads/drop-off.png" />
                </image>
             </ImageView>
-            <TextField fx:id="wherefromtextfield" layoutX="20.0" layoutY="430.0" prefHeight="45.0" prefWidth="188.0" style="-fx-background-color: #E0E0E0;" />
+            <TextField fx:id="pickupatTextField" layoutX="20.0" layoutY="430.0" prefHeight="45.0" prefWidth="188.0" style="-fx-background-color: #E0E0E0;" />
             <TextField fx:id="wheretoTextfield" layoutX="233.0" layoutY="430.0" prefHeight="45.0" prefWidth="188.0" style="-fx-background-color: #E0E0E0;" />
             <Label layoutX="20.0" layoutY="408.0" style="-fx-font-weight: bold;" text="Pickup Location">
                <font>
@@ -142,6 +142,9 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+            <Label fx:id="pickuplabel" layoutX="28.0" layoutY="444.0" style="-fx-font-weight: bold;" text="PickUp" />
+            <Label fx:id="destinationLabel" layoutX="238.0" layoutY="444.0" style="-fx-font-weight: bold;" text="Destination" />
+            <Label fx:id="fareLabel" layoutX="28.0" layoutY="527.0" style="-fx-font-weight: bold;" text="Amount" />
          </children>
       </Pane>
    </children>

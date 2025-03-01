@@ -88,12 +88,13 @@
                   <Font name="Arial" size="13.0" />
                </font>
             </Label>
-            <TextField fx:id="pickuplocationTextfield" layoutX="14.0" layoutY="219.0" prefHeight="25.0" prefWidth="173.0" style="-fx-background-color: white; -fx-border-color: grey; -fx-background-radius: 5; -fx-border-radius: 5;" />
-            <Button fx:id="pickupproceedButton" layoutX="28.0" layoutY="628.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="395.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-font-size: 12; -fx-border-color: black; -fx-border-radius: 20;" text="Proceed">
+            <TextField fx:id="pickuplocationTextfield" layoutX="201.0" layoutY="191.0" prefHeight="27.0" prefWidth="232.0" style="-fx-background-color: white; -fx-border-color: grey; -fx-background-radius: 5; -fx-border-radius: 5;" />
+            <Button fx:id="pickupproceedButton" layoutX="28.0" layoutY="628.0" mnemonicParsing="false" onAction="#pickupproceedHandler" prefHeight="42.0" prefWidth="395.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-font-size: 12; -fx-border-color: black; -fx-border-radius: 20;" text="Proceed">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+            <ImageView fx:id="pickUpMapImageView" fitHeight="350.0" fitWidth="400.0" layoutX="130.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
    </children>

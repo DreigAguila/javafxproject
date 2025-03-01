@@ -48,12 +48,12 @@
          <children>
             <Pane prefHeight="175.0" prefWidth="450.0" style="-fx-background-color: #7a0000;">
                <children>
-                  <Label layoutX="69.0" layoutY="50.0" prefHeight="45.0" prefWidth="161.0" text="Where To?" textFill="WHITE">
+                  <Label layoutX="69.0" layoutY="50.0" prefHeight="45.0" prefWidth="161.0" text="Where to?" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI" size="30.0" />
                      </font>
                   </Label>
-                  <Button fx:id="returntobookingbutton" layoutX="1.0" layoutY="48.0" mnemonicParsing="false" onAction="#returntobookingHandler" prefHeight="51.0" prefWidth="66.0" style="-fx-background-color: #7a0000;" textFill="WHITE">
+                  <Button fx:id="returntobookingButton" layoutX="1.0" layoutY="48.0" mnemonicParsing="false" onAction="#returntobookingHandler" prefHeight="51.0" prefWidth="66.0" style="-fx-background-color: #7a0000;" textFill="WHITE">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -66,12 +66,12 @@
                         <Image url="@../../../Downloads/icons8-back-arrow-50.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="20.0" layoutY="98.0" text="Your journey awaits! " textFill="WHITE">
+                  <Label layoutX="20.0" layoutY="98.0" text="Your ride ends here!" textFill="WHITE">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <Label layoutX="20.0" layoutY="121.0" text="Enter your destination." textFill="WHITE">
+                  <Label layoutX="20.0" layoutY="121.0" text="Enter your drop-off location." textFill="WHITE">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -83,17 +83,18 @@
                   </ImageView>
                </children>
             </Pane>
-            <Label layoutX="14.0" layoutY="196.0" style="-fx-font-weight: bold;" text="Enter your drop-off Location:">
+            <Label layoutX="14.0" layoutY="196.0" style="-fx-font-weight: bold;" text="Enter your Drop-off Location:">
                <font>
                   <Font name="Arial" size="13.0" />
                </font>
             </Label>
-            <TextField fx:id="wheretoTextfield" layoutX="14.0" layoutY="219.0" prefHeight="25.0" prefWidth="173.0" style="-fx-background-color: white; -fx-border-color: grey; -fx-background-radius: 5; -fx-border-radius: 5;" />
-            <Button fx:id="wheretolocationButton" layoutX="28.0" layoutY="628.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="395.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-font-size: 12; -fx-border-color: black; -fx-border-radius: 20;" text="Proceed">
+            <TextField fx:id="wheretoTextfield" layoutX="201.0" layoutY="191.0" prefHeight="27.0" prefWidth="232.0" style="-fx-background-color: white; -fx-border-color: grey; -fx-background-radius: 5; -fx-border-radius: 5;" />
+            <Button fx:id="wheretoproceedButton" layoutX="28.0" layoutY="628.0" mnemonicParsing="false" onAction="#dropOffProceedHandler" prefHeight="42.0" prefWidth="395.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-font-size: 12; -fx-border-color: black; -fx-border-radius: 20;" text="Proceed">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+            <ImageView fx:id="whereToMapImageView" fitHeight="350.0" fitWidth="400.0" layoutX="130.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
    </children>

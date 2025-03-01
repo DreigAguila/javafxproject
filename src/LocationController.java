@@ -1,3 +1,5 @@
+import java.sql.SQLException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -5,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -32,8 +35,70 @@ public class LocationController {
     private TextField wheretoTextfield;
 
     @FXML
-    private void returntohomepageHandler(ActionEvent event) {
+    private Label pickuplabel;
 
+    @FXML
+    private Label destinationLabel;
+
+    @FXML
+    private Label fareLabel;
+
+    // Store data persistently (static variables)
+    private static String lastPickupLocation = "Select a pickup location.";
+    private static String lastDropOffLocation = "Select a drop-off location.";
+    private static double lastFare = 0.0;
+
+    // Method to set Pickup Location
+    public void setPickupLocation(String location) {
+        lastPickupLocation = location;
+        updateUI();
+    }
+
+    // Method to set Drop-Off Location
+    public void setDropOffLocation(String location) {
+        lastDropOffLocation = location;
+        updateFare(); // Retrieve fare from database
+        updateUI();
+    }
+
+    private void updateFare() {
+        System.out.println("Fetching fare for: " + lastPickupLocation + " → " + lastDropOffLocation);
+        
+        try {
+            lastFare = DatabaseHandler.getFareNormalized(lastPickupLocation, lastDropOffLocation);
+            if (lastFare == 0) {
+                fareLabel.setText("Fare: Not available");
+                System.out.println("❌ No matching fare found in database.");
+            } else {
+                fareLabel.setText("" + lastFare);
+                System.out.println("✅ Fare found: " + lastFare);
+            }
+        } catch (SQLException e) {
+            fareLabel.setText("Error retrieving fare");
+            e.printStackTrace();
+        }
+    }
+    // Method to update UI labels
+    private void updateUI() {
+        pickuplabel.setText(lastPickupLocation);
+        destinationLabel.setText(lastDropOffLocation);
+        fareLabel.setText("Fare: ₱" + lastFare);
+    }
+
+    @FXML
+    public void initialize() {
+        // Restore previous values when returning
+        updateUI();
+    }
+     // Reset values when logging out or returning to homepage
+     public static void resetLocationData() {
+        lastPickupLocation = "Select a pickup location.";
+        lastDropOffLocation = "Select a drop-off location.";
+        lastFare = 0.0;
+    }
+    @FXML
+    private void returntohomepageHandler(ActionEvent event) {
+        LocationController.resetLocationData();
         try {
             // Load FXML file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("IRMhomepage.fxml"));

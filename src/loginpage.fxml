@@ -91,12 +91,12 @@
                   <ImageView fitHeight="38.0" fitWidth="42.0" layoutX="76.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true" />
                   <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="77.0" layoutY="184.0">
                      <image>
-                        <Image url="@../../../Downloads/user.png" />
+                        <Image url="@../../../../Downloads/profile-user.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="23.0" fitWidth="25.0" layoutX="76.0" layoutY="279.0">
                      <image>
-                        <Image url="@../../../Downloads/padlock.png" />
+                        <Image url="@../../../../Downloads/padlock.png" />
                      </image>
                   </ImageView>
                   <Button fx:id="returntouserbutton" layoutX="164.0" layoutY="448.0" mnemonicParsing="false" onAction="#returntouserpagehandler" prefHeight="36.0" prefWidth="185.0" style="-fx-background-color: #a60000; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-background-radius: 8;" text="Return to App">
@@ -105,7 +105,7 @@
                      </cursor></Button>
                   <ImageView fitHeight="604.0" fitWidth="375.0" layoutX="525.0" layoutY="-4.0">
                      <image>
-                        <Image url="@../../../Downloads/IRideMoto.png" />
+                        <Image url="@../../../../Downloads/IRideMoto.png" />
                      </image>
                   </ImageView>
                </children>

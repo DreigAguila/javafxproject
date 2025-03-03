@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="700.0" prefWidth="450.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LocationController">
+   <children>
+      <Pane prefHeight="789.0" prefWidth="450.0">
+         <children>
+            <Pane prefHeight="175.0" prefWidth="450.0" style="-fx-background-color: #7a0000;">
+               <children>
+                  <Label layoutX="69.0" layoutY="50.0" prefHeight="45.0" prefWidth="131.0" text="Transport" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI" size="30.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="returntohomepagebutton" layoutX="1.0" layoutY="48.0" mnemonicParsing="false" onAction="#returntohomepageHandler" prefHeight="51.0" prefWidth="66.0" style="-fx-background-color: #7a0000;" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <ImageView fitHeight="32.0" fitWidth="35.0" layoutX="16.0" layoutY="57.0">
+                     <image>
+                        <Image url="@../../../../Downloads/icons8-back-arrow-50.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="20.0" layoutY="98.0" text="No matter your destination, we'll" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="117.0" text="get you there." textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="96.0" fitWidth="117.0" layoutX="333.0" layoutY="73.0" scaleX="-1.0">
+                     <image>
+                        <Image url="@../../../../Downloads/moveitride.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Button fx:id="whereFromButton" alignment="BASELINE_LEFT" layoutX="20.0" layoutY="222.0" mnemonicParsing="false" onAction="#pickupHandler" prefHeight="51.0" prefWidth="411.0" style="-fx-background-color: white; -fx-border-color: #E0E0E0; -fx-background-radius: 8; -fx-border-radius: 8; -fx-font-weight: bold; -fx-font-size: 15;" text="Pick up at?" textAlignment="RIGHT">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label layoutX="20.0" layoutY="194.0" style="-fx-font-weight: bold;" text="Enter your starting point!">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="32.0" fitWidth="35.0" layoutX="386.0" layoutY="231.0">
+               <image>
+                  <Image url="@../../../../Downloads/location.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="20.0" layoutY="298.0" style="-fx-font-weight: bold;" text="Enter your drop-off location">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Button fx:id="whereToButton" alignment="BASELINE_LEFT" layoutX="20.0" layoutY="327.0" mnemonicParsing="false" onAction="#wheretoHandler" prefHeight="51.0" prefWidth="411.0" style="-fx-background-color: white; -fx-border-color: #E0E0E0; -fx-background-radius: 8; -fx-border-radius: 8; -fx-font-weight: bold; -fx-font-size: 15;" text="Where To?" textAlignment="RIGHT">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <ImageView fitHeight="32.0" fitWidth="35.0" layoutX="386.0" layoutY="337.0">
+               <image>
+                  <Image url="@../../../../Downloads/drop-off.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="pickupatTextField" layoutX="20.0" layoutY="430.0" prefHeight="45.0" prefWidth="188.0" style="-fx-background-color: #E0E0E0;" />
+            <TextField fx:id="wheretoTextfield" layoutX="226.0" layoutY="430.0" prefHeight="45.0" prefWidth="188.0" style="-fx-background-color: #E0E0E0;" />
+            <Label layoutX="20.0" layoutY="404.0" style="-fx-font-weight: bold;" text="Pickup Location">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="226.0" layoutY="404.0" style="-fx-font-weight: bold;" text="Destination">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="489.0" style="-fx-font-weight: bold;" text="Amount to Pay">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="totalpayTextfield" layoutX="20.0" layoutY="513.0" prefHeight="45.0" prefWidth="188.0" style="-fx-background-color: #E0E0E0;" />
+            <Button fx:id="confirmlocationButton" layoutX="28.0" layoutY="600.0" mnemonicParsing="false" onAction="#confirmLocationHandler" prefHeight="42.0" prefWidth="395.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-font-size: 12; -fx-border-color: black; -fx-border-radius: 20;" text="Confirm">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label fx:id="pickuplabel" layoutX="29.0" layoutY="444.0" style="-fx-font-weight: bold;" text="PickUp" />
+            <Label fx:id="destinationLabel" layoutX="238.0" layoutY="444.0" style="-fx-font-weight: bold;" text="Destination" />
+            <Label fx:id="fareLabel" layoutX="29.0" layoutY="527.0" style="-fx-font-weight: bold;" text="Label" />
+         </children>
+      </Pane>
+   </children>
+</VBox>

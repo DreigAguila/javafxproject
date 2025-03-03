@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="700.0" prefWidth="450.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="IRMmessagesController">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Line endX="335.3999938964844" layoutX="115.0" layoutY="641.0" startX="-115.00001525878906" style="-fx-stroke: #E0E0E0;" />
+            <Button fx:id="homebuttonpage" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="-1.0" layoutY="641.0" mnemonicParsing="false" onAction="#homepageHandler" prefHeight="59.0" prefWidth="113.0" style="-fx-border-color: white; -fx-background-color: white; -fx-background-radius: -1;" text="Home">
+               <font>
+                  <Font size="10.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="accountpagebutton" alignment="BOTTOM_CENTER" layoutX="338.0" layoutY="641.0" mnemonicParsing="false" onAction="#accountpageHandler" prefHeight="59.0" prefWidth="113.0" style="-fx-border-color: white; -fx-background-color: white;" text="Account">
+               <font>
+                  <Font size="10.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="messagesbuttonpage" alignment="BOTTOM_CENTER" layoutX="225.0" layoutY="641.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="114.0" style="-fx-border-color: white; -fx-background-color: white; -fx-border-radius: -1;" text="Messages">
+               <font>
+                  <Font size="10.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="activitybuttonpage" alignment="BOTTOM_CENTER" layoutX="112.0" layoutY="641.0" mnemonicParsing="false" onAction="#activitypageHandler" prefHeight="59.0" prefWidth="114.0" style="-fx-border-color: white; -fx-background-color: white; -fx-border-radius: -1;" text="Activity">
+               <font>
+                  <Font size="10.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="45.0" layoutY="650.0">
+               <image>
+                  <Image url="@../../../../Downloads/home.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="159.0" layoutY="650.0">
+               <image>
+                  <Image url="@../../../../Downloads/activity.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="272.0" layoutY="650.0">
+               <image>
+                  <Image url="@../../../../Downloads/comment.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="384.0" layoutY="650.0">
+               <image>
+                  <Image url="@../../../../Downloads/user%20(1).png" />
+               </image>
+            </ImageView>
+            <Label layoutX="22.0" layoutY="59.0" text="Messages">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <VBox layoutX="27.0" layoutY="116.0" prefHeight="496.0" prefWidth="402.0">
+               <children>
+                  <HBox prefHeight="45.0" prefWidth="402.0">
+                     <children>
+                        <ToggleButton fx:id="chatsButton" mnemonicParsing="false" prefHeight="33.0" prefWidth="201.0" style="-fx-background-color: black; -fx-background-radius: 20;" text="Chats" textFill="WHITE">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="toggleGroup1" />
+                           </toggleGroup>
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ToggleButton>
+                        <ToggleButton fx:id="notificationButtons" mnemonicParsing="false" prefHeight="26.0" prefWidth="206.0" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 20; -fx-border-radius: 20;" text="Notifications" toggleGroup="$toggleGroup1">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></ToggleButton>
+                     </children>
+                  </HBox>
+                  <StackPane prefHeight="450.0" prefWidth="402.0">
+                     <children>
+                        <Pane fx:id="chatsPane" prefHeight="450.0" prefWidth="402.0" visible="${chatsButton.selected}" />
+                        <Pane fx:id="notificationsPane" prefHeight="457.0" prefWidth="410.0" visible="${notificationsButton.selected}" />
+                     </children>
+                  </StackPane>
+               </children>
+            </VBox>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>

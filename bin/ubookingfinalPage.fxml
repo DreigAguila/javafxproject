@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="700.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UBookingFinalController">
+   <children>
+      <Pane prefHeight="708.0" prefWidth="450.0" style="-fx-background-color: white;">
+         <children>
+            <Pane prefHeight="115.0" prefWidth="450.0" style="-fx-background-color: #7a0000;">
+               <children>
+                  <Label layoutX="14.0" layoutY="62.0" prefHeight="45.0" prefWidth="187.0" text="Transaction" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI" size="30.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="returntobookingButton" layoutX="2.0" layoutY="11.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="51.0" prefWidth="66.0" style="-fx-background-color: #7a0000;" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <ImageView fitHeight="32.0" fitWidth="35.0" layoutX="17.0" layoutY="20.0">
+                     <image>
+                        <Image url="@../../../../Downloads/icons8-back-arrow-50.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="96.0" fitWidth="117.0" layoutX="333.0" layoutY="11.0" scaleX="-1.0">
+                     <image>
+                        <Image url="@../../../../Downloads/moveitride.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane layoutX="22.0" layoutY="162.0" prefHeight="142.0" prefWidth="407.0" style="-fx-border-color: grey;">
+               <children>
+                  <ImageView fitHeight="54.0" fitWidth="59.0" layoutX="14.0" layoutY="53.0">
+                     <image>
+                        <Image url="@../../../../Downloads/jockey.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="19.0" layoutY="14.0" prefHeight="17.0" prefWidth="131.0" style="-fx-font-weight: bold;" text="Rider Information">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="riderNameInfo" layoutX="85.0" layoutY="48.0" text="Name" />
+                  <Label fx:id="riderPhoneInfo" layoutX="85.0" layoutY="93.0" text="Phone Number" />
+                  <Label fx:id="riderPlateInfo" layoutX="201.0" layoutY="48.0" text="Plate Number" />
+                  <Label fx:id="riderLocationInfo" layoutX="200.0" layoutY="93.0" text="Location" />
+                  <Label fx:id="riderVehicleInfo" layoutX="200.0" layoutY="71.0" text="Vehicle Model" />
+                  <Label fx:id="rideridInfo" layoutX="85.0" layoutY="71.0" text="ID" />
+                  <TableView fx:id="randomRiderInfo" layoutX="84.0" layoutY="49.0" prefHeight="61.0" prefWidth="306.0" style="-fx-background-color: white;">
+                    <columns>
+                      <TableColumn fx:id="riderIdColumn" prefWidth="75.0" text="ID" />
+                      <TableColumn fx:id="riderNameColumn" prefWidth="100.0" text="Name" />
+                        <TableColumn fx:id="riderPhoneColumn" prefWidth="100.0" text="PhoneNumber" />
+                        <TableColumn fx:id="riderPlateColumn" prefWidth="100.0" text="PlateNumber" />
+                        <TableColumn fx:id="riderLocation" prefWidth="100.0" text="Location" />
+                        <TableColumn fx:id="riderVehicleColumn" prefWidth="100.0" text="VehicleModel" />
+                    </columns>
+                  </TableView>
+               </children>
+            </Pane>
+            <Label layoutX="153.0" layoutY="115.0" prefHeight="54.0" prefWidth="144.0" text="IRIDEMOTO">
+               <font>
+                  <Font name="Arial Bold" size="25.0" />
+               </font>
+            </Label>
+            <Pane layoutX="22.0" layoutY="311.0" prefHeight="172.0" prefWidth="407.0" style="-fx-border-color: grey;">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="156.0" style="-fx-font-weight: bold;" text="Payment Information">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="49.0" text="Mode of Payment:" />
+                  <ComboBox fx:id="selectPaymentCBox" layoutX="132.0" layoutY="44.0" prefHeight="27.0" prefWidth="117.0" style="-fx-background-color: white; -fx-border-color: grey; -fx-background-radius: 6; -fx-border-radius: 6;" />
+                  <Label layoutX="14.0" layoutY="90.0" text="Enter Voucher Code:" />
+                  <TextField fx:id="entervoucherTextfield" layoutX="132.0" layoutY="85.0" prefHeight="27.0" prefWidth="117.0" promptText="enter code" style="-fx-background-color: white; -fx-border-color: grey; -fx-background-radius: 6; -fx-border-radius: 6;" />
+                  <Label layoutX="14.0" layoutY="130.0" text="Total amount to pay:" />
+                  <Label fx:id="faredisplay" layoutX="135.0" layoutY="130.0" prefHeight="17.0" prefWidth="45.0" text="Fare" />
+                  <Button fx:id="payButton" layoutX="302.0" layoutY="134.0" mnemonicParsing="false" onAction="#handlePayButton" prefHeight="27.0" prefWidth="91.0" style="-fx-background-color: white; -fx-border-radius: 6; -fx-border-color: green; -fx-background-radius: 6;" text="Pay">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="applyButton" layoutX="233.0" layoutY="134.0" mnemonicParsing="false" onAction="#handleApplyVoucher" prefHeight="17.0" prefWidth="59.0" style="-fx-background-color: white; -fx-border-radius: 6; -fx-border-color: green; -fx-background-radius: 6;" text="Apply">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane layoutX="22.0" layoutY="491.0" prefHeight="142.0" prefWidth="407.0" style="-fx-border-color: grey;">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="35.0" style="-fx-font-weight: bold;" text="Time">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="86.0" layoutY="48.0" />
+                  <Label layoutX="14.0" layoutY="48.0" text="Enter Time in :" />
+                  <TextField fx:id="enterTimeTextfield" layoutX="95.0" layoutY="43.0" prefHeight="27.0" prefWidth="81.0" style="-fx-background-color: white; -fx-border-color: grey; -fx-background-radius: 6; -fx-border-radius: 6;" />
+                  <Label layoutX="14.0" layoutY="92.0" text="Estimated Arrival Time: " />
+                  <Label fx:id="estimatedTimeLabel" layoutX="14.0" layoutY="113.0" style="-fx-font-weight: bold;" text="Time" />
+                  <Label layoutX="209.0" layoutY="48.0" text="Pick up to?" />
+                  <Label fx:id="pickupLocationLabel" layoutX="273.0" layoutY="48.0" style="-fx-font-weight: bold;" text="Location" />
+                  <Label layoutX="211.0" layoutY="92.0" text="Where to?" />
+                  <Label fx:id="dropOffLocationLabel" layoutX="273.0" layoutY="92.0" style="-fx-font-weight: bold;" text="Location" />
+               </children>
+            </Pane>
+            <Button fx:id="startRideButton" layoutX="126.0" layoutY="647.0" mnemonicParsing="false" onAction="#handleStartRideButton" prefHeight="27.0" prefWidth="91.0" style="-fx-background-color: white; -fx-border-radius: 8; -fx-border-color: green; -fx-background-radius: 8;" text="Start Ride">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="endRideButton" layoutX="232.0" layoutY="647.0" mnemonicParsing="false" onAction="#handleEndRideButton" prefHeight="17.0" prefWidth="91.0" style="-fx-background-color: white; -fx-border-radius: 8; -fx-border-color: #7a0000; -fx-background-radius: 8; -fx-font-weight: bold;" text="End Ride">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</VBox>

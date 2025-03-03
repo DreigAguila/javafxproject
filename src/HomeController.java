@@ -23,7 +23,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javax.imageio.IIOException;
+
 
 
 public class HomeController implements Initializable{
@@ -61,6 +61,9 @@ public class HomeController implements Initializable{
     private Button customertablebutton;
 
     @FXML
+    private Button ridertablebutton;
+
+    @FXML
     private Label nameLabel;
 
     @FXML
@@ -69,10 +72,12 @@ public class HomeController implements Initializable{
     @FXML
     private TextField passwordtextfield;
 
+    @FXML
+    private Label usernamelabel;
 
     public void displayName(String username)
     {
-        usernamedisplay.setText("Admin");
+        usernamedisplay.setText(username);
     }
 
     @Override
@@ -240,7 +245,7 @@ public class HomeController implements Initializable{
             e.printStackTrace();
         }
     }
-    }
+}
 
     @FXML
     private void customertableHandler(ActionEvent event) {
@@ -249,6 +254,10 @@ public class HomeController implements Initializable{
             // Load FXML file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("customertablepage.fxml"));
             Parent root = loader.load();
+
+
+            CustomerTableController customerTableController = loader.getController();
+            customerTableController.displayName(usernamedisplay.getText());
 
             // Load stage and scene
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -259,6 +268,56 @@ public class HomeController implements Initializable{
 
         } catch (Exception e) {
             System.out.println("Error loading customertablepage.fxml: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+    }
+
+    @FXML
+    private void ridertableHandler(ActionEvent event) {
+
+        try {
+            // Load FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ridertablepage.fxml"));
+            Parent root = loader.load();
+
+
+            RiderTableController riderTableController = loader.getController();
+            riderTableController.displayName(usernamedisplay.getText());
+
+            // Load stage and scene
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+            stage.centerOnScreen();
+
+        } catch (Exception e) {
+            System.out.println("Error loading customertablepage.fxml: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+    }
+
+    
+    @FXML
+    private void transactiontableHandler(ActionEvent event) {
+
+        try {
+            // Load FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("transactionTable.fxml"));
+            Parent root = loader.load();
+
+            
+            // Load stage and scene
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+            stage.centerOnScreen();
+
+        } catch (Exception e) {
+            System.out.println("Error loading transactionTable.fxml: " + e.getMessage());
             e.printStackTrace();
         }
 

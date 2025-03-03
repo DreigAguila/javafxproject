@@ -63,7 +63,7 @@
                   </Button>
                   <ImageView fitHeight="32.0" fitWidth="35.0" layoutX="16.0" layoutY="57.0">
                      <image>
-                        <Image url="@../../../Downloads/icons8-back-arrow-50.png" />
+                        <Image url="@../../../../Downloads/icons8-back-arrow-50.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="20.0" layoutY="98.0" text="Your ride ends here!" textFill="WHITE">
@@ -78,7 +78,7 @@
                   </Label>
                   <ImageView fitHeight="96.0" fitWidth="117.0" layoutX="333.0" layoutY="73.0" scaleX="-1.0">
                      <image>
-                        <Image url="@../../../Downloads/moveitride.png" />
+                        <Image url="@../../../../Downloads/moveitride.png" />
                      </image>
                   </ImageView>
                </children>

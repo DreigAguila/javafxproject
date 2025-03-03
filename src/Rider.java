@@ -1,63 +1,105 @@
-import javafx.beans.property.SimpleStringProperty;
-
 public class Rider {
-    private final SimpleStringProperty riderid;
-    private final SimpleStringProperty riderfullname;
-    private final SimpleStringProperty ridercontactnumber;
-    private final SimpleStringProperty zip;
-    private final SimpleStringProperty city;
-    private final SimpleStringProperty street;
-    private final SimpleStringProperty platenumber;
-    private final SimpleStringProperty vehicle;
-    private final SimpleStringProperty rating;
-    private final SimpleStringProperty shipontime;
+    private String riderid;
+    private String riderfullname;
+    private String ridercontactnumber;
+    private String zip;
+    private String city;
+    private String street;
+    private String platenumber;
+    private String vehicle;
+    private int rating;
+    private String shipontime;
 
-  
-    public Rider (String rId, String rFullName, String rContactNumber, String zip, String city, String street, String plateNumber, String 
-    vehicle, String rating, String shipontime){
-
-        this.riderid = new SimpleStringProperty(rId);
-        this.riderfullname = new SimpleStringProperty(rFullName);
-        this.ridercontactnumber = new SimpleStringProperty(rContactNumber);
-        this.zip = new SimpleStringProperty(zip);
-        this.city = new SimpleStringProperty(city);
-        this.street = new SimpleStringProperty(street);
-        this.platenumber = new SimpleStringProperty(plateNumber);
-        this.vehicle = new SimpleStringProperty(vehicle);
-        this.rating = new SimpleStringProperty(rating);
-        this.shipontime = new SimpleStringProperty(shipontime);
-
+    public Rider(String rId, String rFullName, String rContactNumber, String zip, String city, String street, String plateNumber, String vehicle, int rating, String shipontime) {
+        this.riderid = rId;
+        this.riderfullname = rFullName;
+        this.ridercontactnumber = rContactNumber;
+        this.zip = zip;
+        this.city = city;
+        this.street = street;
+        this.platenumber = plateNumber;
+        this.vehicle = vehicle;
+        this.rating = rating;
+        this.shipontime = shipontime;
     }
 
-    public String getRiderid(){
-        return riderid.get();
+    public String getRiderid() {
+        return riderid;
     }
-    public String getRiderfullname(){
-        return riderfullname.get();
+
+    public void setRiderid(String rId) {
+        this.riderid = rId;
     }
-    public String getRidercontactnumber(){
-        return ridercontactnumber.get();
+
+    public String getRiderfullname() {
+        return riderfullname;
     }
-    public String getZip(){
-        return zip.get();
+
+    public void setRiderfullname(String rFullName) {
+        this.riderfullname = rFullName;
     }
-    public String getCity(){
-        return city.get();
+
+    public String getRidercontactnumber() {
+        return ridercontactnumber;
     }
-    public String getStreet(){
-        return street.get();
+
+    public void setRidercontactnumber(String rContactNumber) {
+        this.ridercontactnumber = rContactNumber;
     }
-    public String getPlatenumber(){
-        return platenumber.get();
+
+    public String getZip() {
+        return zip;
     }
-    public String getVehicle(){
-        return vehicle.get();
+
+    public void setZip(String zip) {
+        this.zip = zip;
     }
-    public String getRating(){
-        return rating.get();
+
+    public String getCity() {
+        return city;
     }
-    public String getShipontime(){
-        return shipontime.get();
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getPlatenumber() {
+        return platenumber;
+    }
+
+    public void setPlatenumber(String plateNumber) {
+        this.platenumber = plateNumber;
+    }
+
+    public String getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(String vehicle) {
+        this.vehicle = vehicle;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public String getShipontime() {
+        return shipontime;
+    }
+
+    public void setShipontime(String shipontime) {
+        this.shipontime = shipontime;
     }
 }
-

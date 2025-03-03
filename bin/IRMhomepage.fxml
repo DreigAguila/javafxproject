@@ -52,7 +52,7 @@
                   <ImageView fitHeight="78.0" fitWidth="113.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" />
                   <ImageView fitHeight="87.0" fitWidth="113.0" layoutX="341.0" layoutY="38.0" scaleX="-1.0">
                      <image>
-                        <Image url="@../../../Downloads/moveitride.png" />
+                        <Image url="@../../../../Downloads/moveitride.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="14.0" layoutY="86.0" textFill="WHITE">
@@ -116,22 +116,22 @@
             </Button>
             <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="45.0" layoutY="650.0">
                <image>
-                  <Image url="@../../../Downloads/home.png" />
+                  <Image url="@../../../../Downloads/home.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="159.0" layoutY="650.0">
                <image>
-                  <Image url="@../../../Downloads/activity.png" />
+                  <Image url="@../../../../Downloads/activity.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="272.0" layoutY="650.0">
                <image>
-                  <Image url="@../../../Downloads/comment.png" />
+                  <Image url="@../../../../Downloads/comment.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="384.0" layoutY="650.0">
                <image>
-                  <Image url="@../../../Downloads/user%20(1).png" />
+                  <Image url="@../../../../Downloads/user%20(1).png" />
                </image>
             </ImageView>
             <Label layoutX="32.0" layoutY="222.0" text="MotoTaxi">
@@ -139,9 +139,9 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <ImageView blendMode="DARKEN" fitHeight="30.0" fitWidth="39.0" layoutX="39.0" layoutY="170.0">
+            <ImageView fitHeight="30.0" fitWidth="39.0" layoutX="39.0" layoutY="170.0">
                <image>
-                  <Image url="@../../../Downloads/motorbike.png" />
+                  <Image url="@../../../../Downloads/motorbike.png" />
                </image>
             </ImageView>
          </children>

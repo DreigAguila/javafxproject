@@ -86,22 +86,22 @@
             </Button>
             <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="45.0" layoutY="650.0">
                <image>
-                  <Image url="@../../../Downloads/home.png" />
+                  <Image url="@../../../../Downloads/home.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="159.0" layoutY="650.0">
                <image>
-                  <Image url="@../../../Downloads/activity.png" />
+                  <Image url="@../../../../Downloads/activity.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="272.0" layoutY="650.0">
                <image>
-                  <Image url="@../../../Downloads/comment.png" />
+                  <Image url="@../../../../Downloads/comment.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="384.0" layoutY="650.0">
                <image>
-                  <Image url="@../../../Downloads/user%20(1).png" />
+                  <Image url="@../../../../Downloads/user%20(1).png" />
                </image>
             </ImageView>
             <Label layoutX="22.0" layoutY="59.0" text="Messages">

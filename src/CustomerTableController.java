@@ -239,7 +239,7 @@ public class CustomerTableController implements Initializable{
             showAlert(AlertType.ERROR, "Please select a user to update.");
             return;
         }
-            String oldCustomerFullName = selectedCustomer.getCustomerfullname();
+            String oldCustomerFullName = selectedCustomer.getCustomerFullName();
             String newCustomerfullname = customerfullnametextfield.getText().trim();
             String newCustomerpassword = customerpasstextfield.getText().trim();
             String newCustomercity = customercitytextfield.getText().trim();
@@ -281,7 +281,7 @@ public class CustomerTableController implements Initializable{
             return;
         }
         
-        Customer updatedCustomer = new Customer(selectedCustomer.getCustomerid(), newCustomerfullname, newCustomerpassword, newCustomercity, 
+        Customer updatedCustomer = new Customer(selectedCustomer.getCustomerId(), newCustomerfullname, newCustomerpassword, newCustomercity, 
         newCustomerzip, newCustomerstreet, newCustomernumber, newCustomeremail);
         if(DatabaseHandler.updateCustomer(oldCustomerFullName, updatedCustomer)){
             showAlert(AlertType.INFORMATION, "Successfully updated");
@@ -303,7 +303,7 @@ public class CustomerTableController implements Initializable{
             return;
         }
 
-        if(DatabaseHandler.deleteCustomer(selectedCustomer.getCustomerfullname())){
+        if(DatabaseHandler.deleteCustomer(selectedCustomer.getCustomerFullName())){
             showAlert(AlertType.INFORMATION, "Successfully deleted");
             displayCustomer();
         } else {
@@ -397,6 +397,26 @@ public class CustomerTableController implements Initializable{
         }
     }
 
+    @FXML
+    private void transactiontableHandler(ActionEvent event) {
 
+        try {
+            // Load FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("transactionTable.fxml"));
+            Parent root = loader.load();
+
+            // Load stage and scene
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+            stage.centerOnScreen();
+
+        } catch (Exception e) {
+            System.out.println("Error loading transactionTable.fxml: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+    }
 
 }

@@ -121,7 +121,7 @@
                </cursor></Button>
             <ImageView blendMode="MULTIPLY" fitHeight="18.0" fitWidth="20.0" layoutX="21.0" layoutY="44.0">
                <image>
-                  <Image url="@../../../Downloads/back-arrow.png" />
+                  <Image url="@../../../../Downloads/back-arrow.png" />
                </image>
             </ImageView>
             <TextField fx:id="lastnametextfield" layoutX="124.0" layoutY="166.0" prefHeight="27.0" prefWidth="282.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: grey; -fx-border-radius: 5;">

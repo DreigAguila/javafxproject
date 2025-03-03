@@ -63,7 +63,7 @@
                   </Button>
                   <ImageView fitHeight="32.0" fitWidth="35.0" layoutX="16.0" layoutY="57.0">
                      <image>
-                        <Image url="@../../../Downloads/icons8-back-arrow-50.png" />
+                        <Image url="@../../../../Downloads/icons8-back-arrow-50.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="20.0" layoutY="98.0" text="No matter your destination, we'll" textFill="WHITE">
@@ -78,12 +78,12 @@
                   </Label>
                   <ImageView fitHeight="96.0" fitWidth="117.0" layoutX="333.0" layoutY="73.0" scaleX="-1.0">
                      <image>
-                        <Image url="@../../../Downloads/moveitride.png" />
+                        <Image url="@../../../../Downloads/moveitride.png" />
                      </image>
                   </ImageView>
                </children>
             </Pane>
-            <Button fx:id="whereFromButton" alignment="BASELINE_LEFT" layoutX="20.0" layoutY="222.0" mnemonicParsing="false" onAction="#pickupHandler" prefHeight="58.0" prefWidth="411.0" style="-fx-background-color: white; -fx-border-color: #E0E0E0; -fx-background-radius: 8; -fx-border-radius: 8; -fx-font-weight: bold; -fx-font-size: 15;" text="Pick up at?" textAlignment="RIGHT">
+            <Button fx:id="whereFromButton" alignment="BASELINE_LEFT" layoutX="20.0" layoutY="222.0" mnemonicParsing="false" onAction="#pickupHandler" prefHeight="51.0" prefWidth="411.0" style="-fx-background-color: white; -fx-border-color: #E0E0E0; -fx-background-radius: 8; -fx-border-radius: 8; -fx-font-weight: bold; -fx-font-size: 15;" text="Pick up at?" textAlignment="RIGHT">
                <font>
                   <Font name="Arial" size="12.0" />
                </font>
@@ -96,9 +96,9 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <ImageView fitHeight="32.0" fitWidth="35.0" layoutX="386.0" layoutY="234.0">
+            <ImageView fitHeight="32.0" fitWidth="35.0" layoutX="386.0" layoutY="231.0">
                <image>
-                  <Image url="@../../../Downloads/location.png" />
+                  <Image url="@../../../../Downloads/location.png" />
                </image>
             </ImageView>
             <Label layoutX="20.0" layoutY="298.0" style="-fx-font-weight: bold;" text="Enter your drop-off location">
@@ -106,7 +106,7 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <Button fx:id="whereToButton" alignment="BASELINE_LEFT" layoutX="20.0" layoutY="327.0" mnemonicParsing="false" onAction="#wheretoHandler" prefHeight="58.0" prefWidth="411.0" style="-fx-background-color: white; -fx-border-color: #E0E0E0; -fx-background-radius: 8; -fx-border-radius: 8; -fx-font-weight: bold; -fx-font-size: 15;" text="Where To?" textAlignment="RIGHT">
+            <Button fx:id="whereToButton" alignment="BASELINE_LEFT" layoutX="20.0" layoutY="327.0" mnemonicParsing="false" onAction="#wheretoHandler" prefHeight="51.0" prefWidth="411.0" style="-fx-background-color: white; -fx-border-color: #E0E0E0; -fx-background-radius: 8; -fx-border-radius: 8; -fx-font-weight: bold; -fx-font-size: 15;" text="Where To?" textAlignment="RIGHT">
                <font>
                   <Font name="Arial" size="12.0" />
                </font>
@@ -114,19 +114,19 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <ImageView fitHeight="32.0" fitWidth="35.0" layoutX="386.0" layoutY="340.0">
+            <ImageView fitHeight="32.0" fitWidth="35.0" layoutX="386.0" layoutY="337.0">
                <image>
-                  <Image url="@../../../Downloads/drop-off.png" />
+                  <Image url="@../../../../Downloads/drop-off.png" />
                </image>
             </ImageView>
             <TextField fx:id="pickupatTextField" layoutX="20.0" layoutY="430.0" prefHeight="45.0" prefWidth="188.0" style="-fx-background-color: #E0E0E0;" />
-            <TextField fx:id="wheretoTextfield" layoutX="233.0" layoutY="430.0" prefHeight="45.0" prefWidth="188.0" style="-fx-background-color: #E0E0E0;" />
-            <Label layoutX="20.0" layoutY="408.0" style="-fx-font-weight: bold;" text="Pickup Location">
+            <TextField fx:id="wheretoTextfield" layoutX="226.0" layoutY="430.0" prefHeight="45.0" prefWidth="188.0" style="-fx-background-color: #E0E0E0;" />
+            <Label layoutX="20.0" layoutY="404.0" style="-fx-font-weight: bold;" text="Pickup Location">
                <font>
                   <Font size="13.0" />
                </font>
             </Label>
-            <Label layoutX="233.0" layoutY="408.0" style="-fx-font-weight: bold;" text="Destination">
+            <Label layoutX="226.0" layoutY="404.0" style="-fx-font-weight: bold;" text="Destination">
                <font>
                   <Font size="13.0" />
                </font>
@@ -137,14 +137,14 @@
                </font>
             </Label>
             <TextField fx:id="totalpayTextfield" layoutX="20.0" layoutY="513.0" prefHeight="45.0" prefWidth="188.0" style="-fx-background-color: #E0E0E0;" />
-            <Button fx:id="confirmlocationButton" layoutX="28.0" layoutY="600.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="395.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-font-size: 12; -fx-border-color: black; -fx-border-radius: 20;" text="Confirm">
+            <Button fx:id="confirmlocationButton" layoutX="28.0" layoutY="600.0" mnemonicParsing="false" onAction="#confirmLocationHandler" prefHeight="42.0" prefWidth="395.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-font-size: 12; -fx-border-color: black; -fx-border-radius: 20;" text="Confirm">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label fx:id="pickuplabel" layoutX="28.0" layoutY="444.0" style="-fx-font-weight: bold;" text="PickUp" />
+            <Label fx:id="pickuplabel" layoutX="29.0" layoutY="444.0" style="-fx-font-weight: bold;" text="PickUp" />
             <Label fx:id="destinationLabel" layoutX="238.0" layoutY="444.0" style="-fx-font-weight: bold;" text="Destination" />
-            <Label fx:id="fareLabel" layoutX="28.0" layoutY="527.0" style="-fx-font-weight: bold;" text="Amount" />
+            <Label fx:id="fareLabel" layoutX="29.0" layoutY="527.0" style="-fx-font-weight: bold;" text="Label" />
          </children>
       </Pane>
    </children>

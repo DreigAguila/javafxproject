@@ -48,9 +48,9 @@
   <children>
     <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <ImageView fitHeight="125.0" fitWidth="451.0" layoutY="-3.0">
+            <ImageView fitHeight="126.0" fitWidth="450.0">
                <image>
-                  <Image url="@../../../Downloads/Untitled%20design%20(4).png" />
+                  <Image url="@../../../../Downloads/Untitled%20design%20(4).png" />
                </image>
             </ImageView>
          </children>
@@ -60,7 +60,7 @@
             <Circle fill="DODGERBLUE" layoutX="224.0" layoutY="-3.0" radius="35.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: #FEE3DC; -fx-fill: #FEE3DC;" />
             <ImageView blendMode="OVERLAY" fitHeight="64.0" fitWidth="64.0" layoutX="192.0" layoutY="-35.0">
                <image>
-                  <Image url="@../../../Downloads/user%20(2).png" />
+                  <Image url="@../../../../Downloads/profile-user.png" />
                </image>
             </ImageView>
             <Button fx:id="returntoaccountbutton" blendMode="MULTIPLY" mnemonicParsing="false" onAction="#returnaccountpageHandler" prefHeight="43.0" prefWidth="47.0" style="-fx-font-weight: bold; -fx-background-color: white; -fx-font-size: 20;" text="&lt;">

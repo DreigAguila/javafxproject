@@ -48,20 +48,20 @@
          <children>
             <Pane layoutY="-4.0" prefHeight="511.0" prefWidth="450.0" style="-fx-background-color: #7a0000;">
                <children>
-                  <ImageView fitHeight="481.0" fitWidth="457.0" layoutY="120.0">
+                  <ImageView fitHeight="511.0" fitWidth="458.0" layoutX="-4.0" layoutY="120.0">
                      <image>
-                        <Image url="@../../../Downloads/Untitled%20design%20(3).png" />
+                        <Image url="@../../../../Downloads/Untitled%20design%20(2).png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="136.0" fitWidth="168.0" layoutX="140.0" layoutY="308.0">
+                     <image>
+                        <Image url="@../../../../Downloads/moveitride.png" />
                      </image>
                   </ImageView>
                   <Button fx:id="irmloginbutton" layoutX="26.0" layoutY="550.0" mnemonicParsing="false" onAction="#irmloginHandler" prefHeight="42.0" prefWidth="395.0" style="-fx-text-fill: white; -fx-background-color: black; -fx-font-weight: bold; -fx-background-radius: 20; -fx-font-size: 12;" text="Log in">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>
-                  <ImageView fitHeight="151.0" fitWidth="174.0" layoutX="136.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../Downloads/moveitride.png" />
-                     </image>
-                  </ImageView>
                   <Label layoutX="132.0" layoutY="93.0" prefHeight="54.0" prefWidth="193.0" text="IRIDEMOTO" textFill="WHITE">
                      <font>
                         <Font name="Arial Bold" size="33.0" />

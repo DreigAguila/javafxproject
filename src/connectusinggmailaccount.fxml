@@ -48,7 +48,7 @@
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
             <Pane prefHeight="27.0" prefWidth="450.0" style="-fx-background-color: #7a0000;" />
-            <Button fx:id="returnloginpage" layoutX="10.0" layoutY="32.0" mnemonicParsing="false" onAction="#returntocustomerloginHandler" prefHeight="49.0" prefWidth="50.0" style="-fx-background-color: white; -fx-border-color: #D3D3D3.; -fx-background-radius: 10; -fx-border-radius: 10;">
+            <Button fx:id="returnloginpage" layoutX="3.0" layoutY="31.0" mnemonicParsing="false" onAction="#returntocustomerloginHandler" prefHeight="49.0" prefWidth="56.0" style="-fx-background-color: white; -fx-border-color: #D3D3D3.; -fx-background-radius: 10; -fx-border-radius: 10;">
                <font>
                   <Font size="15.0" />
                </font>
@@ -56,11 +56,6 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <ImageView fitHeight="18.0" fitWidth="20.0" layoutX="25.0" layoutY="47.0">
-               <image>
-                  <Image url="@../../../Downloads/back-arrow.png" />
-               </image>
-            </ImageView>
             <Label layoutX="113.0" layoutY="56.0" text="Connect Using Your Gmail Account">
                <font>
                   <Font name="Candara Bold" size="15.0" />
@@ -88,6 +83,11 @@
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor></TextField>
+            <ImageView fitHeight="18.0" fitWidth="20.0" layoutX="20.0" layoutY="47.0">
+               <image>
+                  <Image url="@../../../../Downloads/back-arrow.png" />
+               </image>
+            </ImageView>
          </children>
     </AnchorPane>
   </children>

@@ -138,7 +138,7 @@
             <ImageView fitHeight="34.0" fitWidth="58.0" layoutX="728.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fitHeight="48.0" fitWidth="58.0" layoutX="822.0" layoutY="12.0">
                <image>
-                  <Image url="@../../../Downloads/moveitride.png" />
+                  <Image url="@../../../../Downloads/moveitride.png" />
                </image>
             </ImageView>
             <Label fx:id="nameLabel1" alignment="CENTER" layoutX="728.0" layoutY="28.0" prefHeight="17.0" prefWidth="90.0" style="&#10;" text="IRideMoto" textAlignment="CENTER" wrapText="false">
@@ -171,6 +171,11 @@
                </cursor>
             </Button>
             <Button fx:id="customertablebutton" layoutX="422.0" layoutY="756.0" mnemonicParsing="false" onAction="#customertableHandler" prefHeight="30.0" prefWidth="154.0" style="-fx-background-color: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #000000;" text="Customer Table">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="transactionButton" layoutX="587.0" layoutY="756.0" mnemonicParsing="false" onAction="#transactiontableHandler" prefHeight="30.0" prefWidth="154.0" style="-fx-background-color: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #000000;" text="Transaction Table">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

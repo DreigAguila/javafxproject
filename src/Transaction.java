@@ -24,30 +24,75 @@ public class Transaction {
     }
 
     // Getters and setters for each field
-    public String getTransactionId() { return transactionId; }
-    public void setTransactionId(String transactionId) { this.transactionId = transactionId; }
+    public String getTransactionId() {
+        return transactionId;
+    }
 
-    public String getBookingId() { return bookingId; }
-    public void setBookingId(String bookingId) { this.bookingId = bookingId; }
+    public void setTransactionId(String transactionId) {
+        this.transactionId = transactionId;
+    }
 
-    public String getCustomerId() { return customerId; }
-    public void setCustomerId(String customerId) { this.customerId = customerId; }
+    public String getBookingId() {
+        return bookingId;
+    }
 
-    public String getRiderId() { return riderId; } // Add getter for riderId
-    public void setRiderId(String riderId) { this.riderId = riderId; } // Add setter for riderId
+    public void setBookingId(String bookingId) {
+        this.bookingId = bookingId;
+    }
 
-    public LocalDateTime getPickupTime() { return pickupTime; }
-    public void setPickupTime(LocalDateTime pickupTime) { this.pickupTime = pickupTime; }
+    public String getCustomerId() {
+        return customerId;
+    }
 
-    public LocalDateTime getArrivalTime() { return arrivalTime; }
-    public void setArrivalTime(LocalDateTime arrivalTime) { this.arrivalTime = arrivalTime; }
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
 
-    public double getAmountPaid() { return amountPaid; }
-    public void setAmountPaid(double amountPaid) { this.amountPaid = amountPaid; }
+    public String getRiderId() {
+        return riderId;
+    }
 
-    public String getPaymentStatus() { return paymentStatus; }
-    public void setPaymentStatus(String paymentStatus) { this.paymentStatus = paymentStatus; }
+    public void setRiderId(String riderId) {
+        this.riderId = riderId;
+    }
 
-    public LocalDateTime getTransactionDate() { return transactionDate; }
-    public void setTransactionDate(LocalDateTime transactionDate) { this.transactionDate = transactionDate; }
-}// working
+    public LocalDateTime getTransactionDate() {
+        return transactionDate;
+    }
+
+    public void setTransactionDate(LocalDateTime transactionDate) {
+        this.transactionDate = transactionDate;
+    }
+
+    public LocalDateTime getPickupTime() {
+        return pickupTime;
+    }
+
+    public void setPickupTime(LocalDateTime pickupTime) {
+        this.pickupTime = pickupTime;
+    }
+
+    public LocalDateTime getArrivalTime() {
+        return arrivalTime;
+    }
+
+    public void setArrivalTime(LocalDateTime arrivalTime) {
+        this.arrivalTime = arrivalTime;
+    }
+
+    public double getAmountPaid() {
+        return amountPaid;
+    }
+
+    public void setAmountPaid(double amountPaid) {
+        this.amountPaid = amountPaid;
+    }
+
+    public String getPaymentStatus() {
+        return paymentStatus;
+    }
+
+    public void setPaymentStatus(String paymentStatus) {
+        this.paymentStatus = paymentStatus;
+    }
+}

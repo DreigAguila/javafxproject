@@ -35,9 +35,12 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
@@ -81,22 +84,22 @@
             </Button>
             <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="45.0" layoutY="650.0">
                <image>
-                  <Image url="@../../../Downloads/home.png" />
+                  <Image url="@../../../../Downloads/home.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="159.0" layoutY="650.0">
                <image>
-                  <Image url="@../../../Downloads/activity.png" />
+                  <Image url="@../../../../Downloads/activity.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="272.0" layoutY="650.0">
                <image>
-                  <Image url="@../../../Downloads/comment.png" />
+                  <Image url="@../../../../Downloads/comment.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="384.0" layoutY="650.0">
                <image>
-                  <Image url="@../../../Downloads/user%20(1).png" />
+                  <Image url="@../../../../Downloads/user%20(1).png" />
                </image>
             </ImageView>
             <Label layoutX="19.0" layoutY="21.0" text="Activity">
@@ -104,6 +107,22 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
+            <Pane layoutX="19.0" layoutY="69.0" prefHeight="551.0" prefWidth="414.0">
+               <children>
+                  <TableView fx:id="transactionHistory" layoutY="-3.0" prefHeight="558.0" prefWidth="414.0" style="-fx-background-color: white;">
+                    <columns>
+                      <TableColumn fx:id="bookingIdColumn" text="Booking_ID" />
+                      <TableColumn fx:id="customeridColumn" prefWidth="100.0" text="Customer_ID" />
+                        <TableColumn fx:id="rideridColumn" prefWidth="100.0" text="Rider_ID" />
+                        <TableColumn fx:id="transactiondateColumn" prefWidth="100.0" text="TransactionDate" />
+                        <TableColumn fx:id="pickuptimeColumn" prefWidth="100.0" text="Pickup_Time" />
+                        <TableColumn fx:id="arrivaltimeColumn" prefWidth="100.0" text="Arrival_Time" />
+                        <TableColumn fx:id="amountpaidColumn" prefWidth="100.0" text="Amount_Paid" />
+                        <TableColumn fx:id="paymentstatusColumn" prefWidth="100.0" text="Payment Status" />
+                    </columns>
+                  </TableView>
+               </children>
+            </Pane>
          </children>
     </AnchorPane>
   </children>

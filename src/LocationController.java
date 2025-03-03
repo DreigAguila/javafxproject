@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -29,7 +30,7 @@ public class LocationController {
     private Button whereToButton;
 
     @FXML
-    private TextField wherefromtextfield;
+    private TextField pickupatTextField;
 
     @FXML
     private TextField wheretoTextfield;
@@ -42,6 +43,8 @@ public class LocationController {
 
     @FXML
     private Label fareLabel;
+
+    
 
     // Store data persistently (static variables)
     private static String lastPickupLocation = "Select a pickup location.";
@@ -89,6 +92,10 @@ public class LocationController {
     public void initialize() {
         // Restore previous values when returning
         updateUI();
+
+        totalpayTextfield.setEditable(false);
+        pickupatTextField.setEditable(false);
+        wheretoTextfield.setEditable(false);
     }
      // Reset values when logging out or returning to homepage
      public static void resetLocationData() {
@@ -161,5 +168,38 @@ public class LocationController {
         }
 
     }
+    
+    @FXML
+    private void confirmLocationHandler(ActionEvent event) {
+        if (lastPickupLocation.equals("Select a pickup location.") || lastDropOffLocation.equals("Select a drop-off location.")) {
+            showAlert(Alert.AlertType.ERROR, "Error", "Please select both pickup and drop-off locations.");
+            return;
+        }
 
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ubookingfinalPage.fxml"));
+            Parent root = loader.load();
+
+            UBookingFinalController uBookingFinalController = loader.getController();
+            uBookingFinalController.setPickupLocation(lastPickupLocation);
+            uBookingFinalController.setDropOffLocation(lastDropOffLocation);
+            uBookingFinalController.setFare(lastFare);
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+            stage.centerOnScreen();
+        } catch (Exception e) {
+            System.out.println("Error loading ubookingfinalPage.fxml: " + e.getMessage());
+            e.printStackTrace();
+        }
+}
+
+    private void showAlert(Alert.AlertType alertType, String title, String message) {   
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 }
